@@ -12,3 +12,6 @@ main
 # OS
 .DS_Store
 Thumbs.db
+
+# Local context
+*.local.md
