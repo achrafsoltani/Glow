@@ -218,5 +218,77 @@ gcID, _ := conn.CreateGC(windowID)
 defer conn.FreeGC(gcID)
 ```
 
+## 10.8 X11 Request Size Limit (Important!)
+
+X11 requests have a **16-bit length field**, limiting each request to:
+```
+65535 * 4 = 262,140 bytes maximum
+```
+
+For PutImage, the header is 24 bytes, leaving ~262KB for pixel data.
+
+### The Problem
+
+For an 800x600 window at 4 bytes/pixel:
+```
+800 × 600 × 4 = 1,920,000 bytes
+```
+
+This exceeds the limit by 7x! Sending this causes an X11 `Length` error.
+
+### The Solution: Split into Strips
+
+Send the image in horizontal strips that fit within the limit:
+
+```go
+func (c *Connection) PutImage(drawable, gc uint32, width, height uint16,
+    dstX, dstY int16, depth uint8, data []byte) error {
+
+    bytesPerPixel := 4
+    rowBytes := int(width) * bytesPerPixel
+
+    // Max data per request (~262KB - 24 byte header)
+    maxDataBytes := 262140 - 24
+
+    // Calculate rows that fit in one request
+    rowsPerRequest := maxDataBytes / rowBytes
+    if rowsPerRequest > int(height) {
+        rowsPerRequest = int(height)
+    }
+
+    // Send image in horizontal strips
+    for y := 0; y < int(height); y += rowsPerRequest {
+        stripHeight := rowsPerRequest
+        if y+stripHeight > int(height) {
+            stripHeight = int(height) - y
+        }
+
+        stripData := data[y*rowBytes : (y+stripHeight)*rowBytes]
+
+        // Send this strip with adjusted Y position
+        err := c.putImageStrip(drawable, gc, width, uint16(stripHeight),
+            dstX, dstY+int16(y), depth, stripData)
+        if err != nil {
+            return err
+        }
+    }
+    return nil
+}
+```
+
+### Example Calculation
+
+For 800x600 at 4 bytes/pixel:
+- Row size: 800 × 4 = 3,200 bytes
+- Max rows per request: 262,116 / 3,200 ≈ 81 rows
+- Number of requests needed: 600 / 81 ≈ 8 requests
+
+### Alternative: BigRequests Extension
+
+X11 has a `BigRequests` extension allowing 32-bit length fields. However, splitting into strips:
+- Works on all X servers
+- Requires no extension negotiation
+- Is simpler to implement
+
 ## Next Step
 Continue to Step 11 to create a Framebuffer with drawing primitives.

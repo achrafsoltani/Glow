@@ -187,6 +187,12 @@ Glow communicates directly with the X11 server using the X11 protocol over Unix 
 
 All rendering is done in software using a framebuffer, then transferred to X11 for display.
 
+### Technical Notes
+
+**Large Image Handling**: X11 requests are limited to ~262KB due to a 16-bit length field. For larger framebuffers (e.g., 800x600 = 1.9MB), Glow automatically splits the image into horizontal strips, sending multiple PutImage requests. This is transparent to the user.
+
+**Wayland Compatibility**: Glow works on Wayland systems through XWayland, the X11 compatibility layer.
+
 ## License
 
 MIT
