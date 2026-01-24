@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 220" width="450" height="220">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="450" height="220" fill="#FAFAFA"/>
+
+  <text x="225" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Sprite Sheet Grid Layout</text>
+
+  <!-- Sprite sheet container -->
+  <g transform="translate(75, 45)" filter="url(#shadow)">
+    <rect x="0" y="0" width="300" height="150" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="2"/>
+
+    <!-- Row 1: Walk animation -->
+    <rect x="0" y="0" width="75" height="75" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="37" y="35" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1E8449">Walk</text>
+    <text x="37" y="52" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#27AE60">1</text>
+
+    <rect x="75" y="0" width="75" height="75" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="112" y="35" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1E8449">Walk</text>
+    <text x="112" y="52" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#27AE60">2</text>
+
+    <rect x="150" y="0" width="75" height="75" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="187" y="35" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1E8449">Walk</text>
+    <text x="187" y="52" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#27AE60">3</text>
+
+    <rect x="225" y="0" width="75" height="75" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="262" y="35" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1E8449">Walk</text>
+    <text x="262" y="52" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#27AE60">4</text>
+
+    <!-- Row 2: Jump and Idle -->
+    <rect x="0" y="75" width="75" height="75" fill="#D6EAF8" stroke="#3498DB"/>
+    <text x="37" y="110" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#2980B9">Jump</text>
+    <text x="37" y="127" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#3498DB">1</text>
+
+    <rect x="75" y="75" width="75" height="75" fill="#D6EAF8" stroke="#3498DB"/>
+    <text x="112" y="110" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#2980B9">Jump</text>
+    <text x="112" y="127" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#3498DB">2</text>
+
+    <rect x="150" y="75" width="75" height="75" fill="#FCF3CF" stroke="#F39C12"/>
+    <text x="187" y="110" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#E67E22">Idle</text>
+    <text x="187" y="127" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#F39C12">1</text>
+
+    <rect x="225" y="75" width="75" height="75" fill="#FCF3CF" stroke="#F39C12"/>
+    <text x="262" y="110" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#E67E22">Idle</text>
+    <text x="262" y="127" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#F39C12">2</text>
+  </g>
+
+  <!-- Coordinate labels -->
+  <text x="112" y="207" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">(0,0)</text>
+  <text x="187" y="207" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">(1,0)</text>
+  <text x="262" y="207" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">(2,0)</text>
+  <text x="337" y="207" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">(3,0)</text>
+
+  <!-- Frame size note -->
+  <text x="225" y="55" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#95A5A6">Each cell: frameWidth × frameHeight pixels</text>
+</svg>

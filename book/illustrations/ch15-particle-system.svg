@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350">
+  <defs>
+    <linearGradient id="emitterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow15">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Particle System Architecture</text>
+
+  <!-- Particle visualization -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="280" height="230" rx="8" fill="#1A1A2E" filter="url(#shadow)"/>
+    <text x="140" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#ECF0F1">Particle Effect</text>
+
+    <!-- Emitter -->
+    <rect x="115" y="180" width="50" height="20" rx="4" fill="url(#emitterGrad)"/>
+    <text x="140" y="195" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">Emitter</text>
+
+    <!-- Particles (various states) -->
+    <!-- Fresh particles (bright, large) -->
+    <circle cx="140" cy="160" r="8" fill="#F1C40F" filter="url(#glow15)" opacity="1"/>
+    <circle cx="125" cy="155" r="7" fill="#F39C12" filter="url(#glow15)" opacity="0.95"/>
+    <circle cx="155" cy="158" r="6" fill="#E67E22" filter="url(#glow15)" opacity="0.9"/>
+
+    <!-- Mid-life particles -->
+    <circle cx="130" cy="130" r="6" fill="#E74C3C" filter="url(#glow15)" opacity="0.8"/>
+    <circle cx="150" cy="125" r="5" fill="#E74C3C" filter="url(#glow15)" opacity="0.75"/>
+    <circle cx="118" cy="120" r="5" fill="#C0392B" filter="url(#glow15)" opacity="0.7"/>
+    <circle cx="162" cy="135" r="4" fill="#E74C3C" filter="url(#glow15)" opacity="0.65"/>
+
+    <!-- Older particles (fading) -->
+    <circle cx="135" cy="95" r="4" fill="#922B21" filter="url(#glow15)" opacity="0.5"/>
+    <circle cx="155" cy="100" r="3" fill="#922B21" filter="url(#glow15)" opacity="0.4"/>
+    <circle cx="120" cy="85" r="3" fill="#641E16" filter="url(#glow15)" opacity="0.3"/>
+    <circle cx="145" cy="75" r="2" fill="#641E16" filter="url(#glow15)" opacity="0.2"/>
+
+    <!-- Nearly dead particles -->
+    <circle cx="138" cy="55" r="2" fill="#4A1410" filter="url(#glow15)" opacity="0.1"/>
+    <circle cx="150" cy="60" r="1" fill="#4A1410" filter="url(#glow15)" opacity="0.05"/>
+
+    <!-- Velocity arrows -->
+    <line x1="140" y1="160" x2="145" y2="140" stroke="#3498DB" stroke-width="1" opacity="0.5"/>
+    <line x1="125" y1="155" x2="115" y2="135" stroke="#3498DB" stroke-width="1" opacity="0.5"/>
+    <line x1="155" y1="158" x2="170" y2="140" stroke="#3498DB" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Particle structure -->
+  <g transform="translate(370, 60)" filter="url(#shadow)">
+    <rect x="0" y="0" width="280" height="130" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="140" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">Particle Properties</text>
+
+    <g transform="translate(15, 35)">
+      <text x="0" y="0" font-family="Consolas, monospace" font-size="10" fill="#2C3E50">X, Y      float64  // position</text>
+      <text x="0" y="18" font-family="Consolas, monospace" font-size="10" fill="#2C3E50">VX, VY    float64  // velocity</text>
+      <text x="0" y="36" font-family="Consolas, monospace" font-size="10" fill="#2C3E50">Life      float64  // remaining</text>
+      <text x="0" y="54" font-family="Consolas, monospace" font-size="10" fill="#2C3E50">MaxLife   float64  // for alpha</text>
+      <text x="0" y="72" font-family="Consolas, monospace" font-size="10" fill="#2C3E50">Color     Color    // base color</text>
+      <text x="0" y="90" font-family="Consolas, monospace" font-size="10" fill="#2C3E50">Size      float64  // radius</text>
+    </g>
+  </g>
+
+  <!-- Pool structure -->
+  <g transform="translate(370, 200)" filter="url(#shadow)">
+    <rect x="0" y="0" width="280" height="90" rx="6" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="140" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1E8449">Object Pool (Pre-allocated)</text>
+
+    <g transform="translate(15, 40)">
+      <rect x="0" y="0" width="25" height="20" fill="#27AE60" rx="2"/>
+      <rect x="28" y="0" width="25" height="20" fill="#27AE60" rx="2"/>
+      <rect x="56" y="0" width="25" height="20" fill="#27AE60" rx="2"/>
+      <rect x="84" y="0" width="25" height="20" fill="#95A5A6" rx="2"/>
+      <rect x="112" y="0" width="25" height="20" fill="#95A5A6" rx="2"/>
+      <rect x="140" y="0" width="25" height="20" fill="#95A5A6" rx="2"/>
+      <text x="168" y="14" font-family="Arial, sans-serif" font-size="10" fill="#666">...</text>
+      <rect x="185" y="0" width="25" height="20" fill="#95A5A6" rx="2"/>
+      <rect x="213" y="0" width="25" height="20" fill="#95A5A6" rx="2"/>
+    </g>
+    <text x="140" y="78" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#27AE60">Active: 3 / 10000 (no GC pressure)</text>
+  </g>
+
+  <!-- Update loop -->
+  <g transform="translate(50, 300)">
+    <rect x="0" y="0" width="600" height="40" rx="6" fill="#2C3E50" filter="url(#shadow)"/>
+    <text x="300" y="17" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#ECF0F1">Update Loop (per frame)</text>
+    <text x="300" y="33" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#BDC3C7">position += velocity × dt | life -= dt | alpha = life / maxLife | if life ≤ 0: deactivate</text>
+  </g>
+</svg>

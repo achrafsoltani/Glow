@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" width="500" height="450">
+  <defs>
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0AD4E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC971F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5BC0DE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#31B0D5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="450" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="250" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Project Structure</text>
+
+  <!-- Folder icon template -->
+  <!-- glow/ root folder -->
+  <g transform="translate(40, 50)" filter="url(#shadow)">
+    <rect x="0" y="5" width="20" height="4" rx="1" fill="url(#folderGrad)"/>
+    <rect x="0" y="7" width="28" height="18" rx="2" fill="url(#folderGrad)"/>
+    <text x="35" y="20" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#333">glow/</text>
+  </g>
+
+  <!-- go.mod file -->
+  <g transform="translate(70, 90)" filter="url(#shadow)">
+    <rect x="0" y="0" width="22" height="26" rx="2" fill="url(#fileGrad)"/>
+    <rect x="2" y="6" width="18" height="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="2" y="10" width="14" height="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="2" y="14" width="16" height="2" fill="rgba(255,255,255,0.5)"/>
+    <text x="30" y="18" font-family="Consolas, monospace" font-size="12" fill="#333">go.mod</text>
+  </g>
+
+  <!-- glow.go file -->
+  <g transform="translate(70, 125)" filter="url(#shadow)">
+    <rect x="0" y="0" width="22" height="26" rx="2" fill="url(#fileGrad)"/>
+    <rect x="2" y="6" width="18" height="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="2" y="10" width="14" height="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="2" y="14" width="16" height="2" fill="rgba(255,255,255,0.5)"/>
+    <text x="30" y="18" font-family="Consolas, monospace" font-size="12" fill="#333">glow.go</text>
+    <text x="120" y="18" font-family="Arial, sans-serif" font-size="10" fill="#666">Public API</text>
+  </g>
+
+  <!-- events.go file -->
+  <g transform="translate(70, 160)" filter="url(#shadow)">
+    <rect x="0" y="0" width="22" height="26" rx="2" fill="url(#fileGrad)"/>
+    <rect x="2" y="6" width="18" height="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="2" y="10" width="14" height="2" fill="rgba(255,255,255,0.5)"/>
+    <rect x="2" y="14" width="16" height="2" fill="rgba(255,255,255,0.5)"/>
+    <text x="30" y="18" font-family="Consolas, monospace" font-size="12" fill="#333">events.go</text>
+    <text x="120" y="18" font-family="Arial, sans-serif" font-size="10" fill="#666">Event types</text>
+  </g>
+
+  <!-- internal/ folder -->
+  <g transform="translate(70, 200)" filter="url(#shadow)">
+    <rect x="0" y="5" width="20" height="4" rx="1" fill="url(#folderGrad)"/>
+    <rect x="0" y="7" width="28" height="18" rx="2" fill="url(#folderGrad)"/>
+    <text x="35" y="20" font-family="Consolas, monospace" font-size="13" font-weight="bold" fill="#333">internal/</text>
+    <text x="120" y="20" font-family="Arial, sans-serif" font-size="10" fill="#888">Private packages</text>
+  </g>
+
+  <!-- x11/ subfolder -->
+  <g transform="translate(100, 235)" filter="url(#shadow)">
+    <rect x="0" y="5" width="20" height="4" rx="1" fill="url(#folderGrad)"/>
+    <rect x="0" y="7" width="28" height="18" rx="2" fill="url(#folderGrad)"/>
+    <text x="35" y="20" font-family="Consolas, monospace" font-size="12" font-weight="bold" fill="#333">x11/</text>
+  </g>
+
+  <!-- x11 files -->
+  <g font-family="Consolas, monospace" font-size="11" fill="#555">
+    <text x="140" y="280">conn.go</text>
+    <text x="230" y="280" font-family="Arial, sans-serif" font-size="9" fill="#888">X11 connection</text>
+
+    <text x="140" y="298">auth.go</text>
+    <text x="230" y="298" font-family="Arial, sans-serif" font-size="9" fill="#888">Authentication</text>
+
+    <text x="140" y="316">protocol.go</text>
+    <text x="230" y="316" font-family="Arial, sans-serif" font-size="9" fill="#888">Constants, opcodes</text>
+
+    <text x="140" y="334">window.go</text>
+    <text x="230" y="334" font-family="Arial, sans-serif" font-size="9" fill="#888">Window management</text>
+
+    <text x="140" y="352">event.go</text>
+    <text x="230" y="352" font-family="Arial, sans-serif" font-size="9" fill="#888">Event handling</text>
+
+    <text x="140" y="370">draw.go</text>
+    <text x="230" y="370" font-family="Arial, sans-serif" font-size="9" fill="#888">Graphics context, PutImage</text>
+
+    <text x="140" y="388">framebuffer.go</text>
+    <text x="230" y="388" font-family="Arial, sans-serif" font-size="9" fill="#888">Pixel buffer</text>
+
+    <text x="140" y="406">atoms.go</text>
+    <text x="230" y="406" font-family="Arial, sans-serif" font-size="9" fill="#888">Window properties</text>
+  </g>
+
+  <!-- File icons for x11 files -->
+  <g transform="translate(125, 267)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 285)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 303)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 321)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 339)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 357)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 375)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+  <g transform="translate(125, 393)">
+    <rect x="0" y="0" width="12" height="14" rx="1" fill="#31B0D5"/>
+  </g>
+
+  <!-- Tree lines -->
+  <g stroke="#CCC" stroke-width="1" fill="none">
+    <!-- Vertical line from root -->
+    <path d="M 55 75 L 55 410"/>
+    <!-- Horizontal branches -->
+    <path d="M 55 105 L 65 105"/>
+    <path d="M 55 140 L 65 140"/>
+    <path d="M 55 175 L 65 175"/>
+    <path d="M 55 217 L 65 217"/>
+    <!-- internal subfolder -->
+    <path d="M 85 235 L 85 410"/>
+    <path d="M 85 252 L 95 252"/>
+    <!-- x11 subfolder lines -->
+    <path d="M 115 270 L 115 405"/>
+    <path d="M 115 275 L 122 275"/>
+    <path d="M 115 293 L 122 293"/>
+    <path d="M 115 311 L 122 311"/>
+    <path d="M 115 329 L 122 329"/>
+    <path d="M 115 347 L 122 347"/>
+    <path d="M 115 365 L 122 365"/>
+    <path d="M 115 383 L 122 383"/>
+    <path d="M 115 401 L 122 401"/>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(380, 90)">
+    <rect x="0" y="0" width="100" height="70" rx="5" fill="#F5F5F5" stroke="#DDD"/>
+    <text x="50" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#666">Legend</text>
+
+    <rect x="10" y="28" width="14" height="4" rx="1" fill="url(#folderGrad)"/>
+    <rect x="10" y="30" width="18" height="12" rx="2" fill="url(#folderGrad)"/>
+    <text x="35" y="40" font-family="Arial, sans-serif" font-size="9" fill="#666">Folder</text>
+
+    <rect x="10" y="50" width="14" height="16" rx="1" fill="url(#fileGrad)"/>
+    <text x="35" y="62" font-family="Arial, sans-serif" font-size="9" fill="#666">Go file</text>
+  </g>
+</svg>

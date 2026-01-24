@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="800" height="350">
+  <defs>
+    <linearGradient id="clientGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ADD8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0095BD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serverGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="displayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrowReq" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+    <marker id="arrowEvt" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#E74C3C"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">X11 Client-Server Architecture</text>
+
+  <!-- Multiple X Clients -->
+  <g transform="translate(30, 70)">
+    <!-- Client 1 -->
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="140" height="80" rx="8" fill="url(#clientGrad3)"/>
+      <text x="70" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">X Client 1</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Your App)</text>
+      <text x="70" y="65" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Glow</text>
+    </g>
+
+    <!-- Client 2 -->
+    <g transform="translate(0, 100)" filter="url(#shadow)">
+      <rect x="0" y="0" width="140" height="80" rx="8" fill="url(#clientGrad3)"/>
+      <text x="70" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">X Client 2</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Browser)</text>
+      <text x="70" y="65" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Firefox</text>
+    </g>
+
+    <!-- Client 3 -->
+    <g transform="translate(0, 200)" filter="url(#shadow)">
+      <rect x="0" y="0" width="140" height="80" rx="8" fill="url(#clientGrad3)"/>
+      <text x="70" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">X Client 3</text>
+      <text x="70" y="48" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Terminal)</text>
+      <text x="70" y="65" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">xterm</text>
+    </g>
+  </g>
+
+  <!-- X Server -->
+  <g transform="translate(300, 100)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="url(#serverGrad3)"/>
+    <text x="100" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">X Server</text>
+    <text x="100" y="55" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Xorg / XWayland)</text>
+
+    <!-- Server functions -->
+    <rect x="15" y="70" width="170" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+    <text x="100" y="90" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Window Management</text>
+    <text x="100" y="108" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Input Handling</text>
+    <text x="100" y="126" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Rendering</text>
+    <text x="100" y="144" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Resource Management</text>
+  </g>
+
+  <!-- Display Hardware -->
+  <g transform="translate(580, 100)" filter="url(#shadow)">
+    <rect x="0" y="0" width="180" height="180" rx="10" fill="url(#displayGrad)"/>
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Display Hardware</text>
+
+    <!-- Monitor icon -->
+    <rect x="40" y="55" width="100" height="70" rx="3" fill="#1A252F" stroke="#555" stroke-width="2"/>
+    <rect x="45" y="60" width="90" height="55" fill="#3498DB"/>
+    <rect x="65" y="125" width="50" height="8" fill="#555"/>
+    <rect x="55" y="133" width="70" height="5" rx="2" fill="#444"/>
+
+    <!-- Input devices -->
+    <text x="90" y="155" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)">Monitor + GPU</text>
+    <text x="90" y="170" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)">Keyboard + Mouse</text>
+  </g>
+
+  <!-- Arrows: Requests (Client to Server) -->
+  <g>
+    <line x1="170" y1="110" x2="295" y2="150" stroke="#27AE60" stroke-width="2" marker-end="url(#arrowReq)"/>
+    <line x1="170" y1="210" x2="295" y2="190" stroke="#27AE60" stroke-width="2" marker-end="url(#arrowReq)"/>
+    <line x1="170" y1="310" x2="295" y2="230" stroke="#27AE60" stroke-width="2" marker-end="url(#arrowReq)"/>
+  </g>
+
+  <!-- Arrows: Events (Server to Client) -->
+  <g>
+    <line x1="295" y1="165" x2="170" y2="125" stroke="#E74C3C" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowEvt)"/>
+    <line x1="295" y1="200" x2="170" y2="225" stroke="#E74C3C" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowEvt)"/>
+    <line x1="295" y1="240" x2="170" y2="325" stroke="#E74C3C" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowEvt)"/>
+  </g>
+
+  <!-- Arrow: Server to Display -->
+  <line x1="500" y1="190" x2="575" y2="190" stroke="#666" stroke-width="3" marker-end="url(#arrowReq)"/>
+
+  <!-- Labels -->
+  <g transform="translate(200, 80)">
+    <rect x="0" y="0" width="70" height="18" rx="3" fill="#27AE60"/>
+    <text x="35" y="13" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Requests</text>
+  </g>
+
+  <g transform="translate(200, 320)">
+    <rect x="0" y="0" width="60" height="18" rx="3" fill="#E74C3C"/>
+    <text x="30" y="13" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Events</text>
+  </g>
+</svg>

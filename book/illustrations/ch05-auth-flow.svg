@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400" width="750" height="400">
+  <defs>
+    <linearGradient id="serverGrad5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="clientGrad5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ADD8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0095BD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow5" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+    <marker id="arrow5b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498DB"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="400" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="375" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">MIT-MAGIC-COOKIE-1 Authentication Flow</text>
+
+  <!-- X Server -->
+  <g transform="translate(50, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#serverGrad5)"/>
+    <text x="75" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">X Server</text>
+    <text x="75" y="55" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Xorg)</text>
+    <rect x="20" y="65" width="110" height="25" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="75" y="82" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.9)">Generates cookie</text>
+  </g>
+
+  <!-- Xauthority File -->
+  <g transform="translate(300, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#fileGrad)"/>
+    <text x="75" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">~/.Xauthority</text>
+    <rect x="15" y="50" width="120" height="40" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="75" y="68" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.9)">Family: 256</text>
+    <text x="75" y="82" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.9)">Cookie: a1b2c3...</text>
+  </g>
+
+  <!-- X Client -->
+  <g transform="translate(550, 80)" filter="url(#shadow)">
+    <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#clientGrad5)"/>
+    <text x="75" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">X Client</text>
+    <text x="75" y="55" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Glow)</text>
+    <rect x="20" y="65" width="110" height="25" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="75" y="82" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.9)">Reads cookie</text>
+  </g>
+
+  <!-- Step 1: Server writes cookie -->
+  <g transform="translate(0, 200)">
+    <circle cx="80" cy="0" r="20" fill="#27AE60"/>
+    <text x="80" y="6" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">1</text>
+    <line x1="200" y1="-70" x2="300" y2="-70" stroke="#27AE60" stroke-width="2" marker-end="url(#arrow5)"/>
+    <text x="250" y="-80" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#27AE60">Writes cookie</text>
+    <text x="80" y="40" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#666">Server startup</text>
+  </g>
+
+  <!-- Step 2: Client reads cookie -->
+  <g transform="translate(250, 200)">
+    <circle cx="80" cy="0" r="20" fill="#3498DB"/>
+    <text x="80" y="6" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">2</text>
+    <line x1="200" y1="-70" x2="300" y2="-70" stroke="#3498DB" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow5b)"/>
+    <text x="250" y="-80" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#3498DB">Reads cookie</text>
+    <text x="80" y="40" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#666">Client startup</text>
+  </g>
+
+  <!-- Step 3: Client sends cookie to server -->
+  <g transform="translate(500, 200)">
+    <circle cx="80" cy="0" r="20" fill="#E74C3C"/>
+    <text x="80" y="6" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">3</text>
+    <text x="80" y="40" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#666">Handshake</text>
+  </g>
+
+  <!-- Connection flow -->
+  <g transform="translate(0, 270)">
+    <rect x="50" y="0" width="650" height="70" rx="6" fill="#E8F8F5" stroke="#27AE60"/>
+    <text x="375" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1E8449">Connection Handshake</text>
+
+    <!-- Client to Server arrow -->
+    <line x1="600" y1="45" x2="150" y2="45" stroke="#00ADD8" stroke-width="2" marker-end="url(#arrow5b)"/>
+    <text x="375" y="58" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="#0095BD">auth_name="MIT-MAGIC-COOKIE-1", auth_data=cookie</text>
+  </g>
+
+  <!-- Result -->
+  <g transform="translate(200, 360)">
+    <rect x="0" y="0" width="350" height="30" rx="4" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="175" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1E8449">Server verifies cookie → Connection accepted!</text>
+  </g>
+</svg>

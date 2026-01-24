@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 380" width="750" height="380">
+  <defs>
+    <linearGradient id="keyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mouseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="winGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="msgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="380" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="375" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">X11 Event Types</text>
+
+  <!-- Keyboard Events -->
+  <g transform="translate(30, 60)">
+    <text x="85" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#3498DB">Keyboard Events</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#keyGrad)"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">2</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">KeyPress</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Key pressed</text>
+    </g>
+
+    <g transform="translate(0, 70)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#keyGrad)" fill-opacity="0.85"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">3</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">KeyRelease</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Key released</text>
+    </g>
+  </g>
+
+  <!-- Mouse Events -->
+  <g transform="translate(220, 60)">
+    <text x="85" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#27AE60">Mouse Events</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#mouseGrad)"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">4</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">ButtonPress</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Mouse click</text>
+    </g>
+
+    <g transform="translate(0, 70)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#mouseGrad)" fill-opacity="0.85"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">5</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">ButtonRelease</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Button released</text>
+    </g>
+
+    <g transform="translate(0, 125)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#mouseGrad)" fill-opacity="0.7"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">6</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">MotionNotify</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Mouse moved</text>
+    </g>
+  </g>
+
+  <!-- Window Events -->
+  <g transform="translate(410, 60)">
+    <text x="85" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#E74C3C">Window Events</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#winGrad)"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">12</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Expose</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Needs redraw</text>
+    </g>
+
+    <g transform="translate(0, 70)" filter="url(#shadow)">
+      <rect x="0" y="0" width="170" height="45" rx="6" fill="url(#winGrad)" fill-opacity="0.85"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">22</text>
+      <text x="105" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">ConfigureNotify</text>
+      <text x="105" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Resized/moved</text>
+    </g>
+  </g>
+
+  <!-- Special Events -->
+  <g transform="translate(600, 60)">
+    <text x="70" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#9B59B6">Special</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="url(#msgGrad)"/>
+      <rect x="10" y="8" width="35" height="28" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <text x="27" y="28" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">33</text>
+      <text x="90" y="22" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">ClientMessage</text>
+      <text x="90" y="36" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.7)">Close button etc</text>
+    </g>
+  </g>
+
+  <!-- Event Masks section -->
+  <g transform="translate(30, 260)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Event Masks (enable events you need)</text>
+
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="690" height="95" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="150" height="25" rx="3" fill="#3498DB"/>
+        <text x="75" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">KeyPressMask = 1 &lt;&lt; 0</text>
+      </g>
+
+      <g transform="translate(175, 15)">
+        <rect x="0" y="0" width="150" height="25" rx="3" fill="#3498DB" fill-opacity="0.8"/>
+        <text x="75" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">KeyReleaseMask = 1 &lt;&lt; 1</text>
+      </g>
+
+      <g transform="translate(335, 15)">
+        <rect x="0" y="0" width="165" height="25" rx="3" fill="#27AE60"/>
+        <text x="82" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">ButtonPressMask = 1 &lt;&lt; 2</text>
+      </g>
+
+      <g transform="translate(510, 15)">
+        <rect x="0" y="0" width="165" height="25" rx="3" fill="#27AE60" fill-opacity="0.8"/>
+        <text x="82" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">PointerMotionMask = 1 &lt;&lt; 6</text>
+      </g>
+
+      <g transform="translate(15, 50)">
+        <rect x="0" y="0" width="150" height="25" rx="3" fill="#E74C3C"/>
+        <text x="75" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">ExposureMask = 1 &lt;&lt; 15</text>
+      </g>
+
+      <g transform="translate(175, 50)">
+        <rect x="0" y="0" width="180" height="25" rx="3" fill="#E74C3C" fill-opacity="0.8"/>
+        <text x="90" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">StructureNotifyMask = 1 &lt;&lt; 17</text>
+      </g>
+
+      <g transform="translate(365, 50)">
+        <rect x="0" y="0" width="310" height="25" rx="3" fill="#F39C12"/>
+        <text x="155" y="17" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">Combine masks with | (bitwise OR) when creating window</text>
+      </g>
+    </g>
+  </g>
+</svg>

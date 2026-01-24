@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350">
+  <defs>
+    <linearGradient id="gcGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="propGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="propGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="propGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Graphics Context (GC) Properties</text>
+
+  <!-- GC Box -->
+  <g transform="translate(50, 60)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="250" rx="10" fill="url(#gcGrad)"/>
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Graphics Context</text>
+    <text x="100" y="50" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.7)">GC ID: 0x04000001</text>
+
+    <!-- Properties list -->
+    <rect x="15" y="65" width="170" height="170" rx="5" fill="rgba(0,0,0,0.2)"/>
+
+    <text x="100" y="85" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Foreground: 0xFFFFFF</text>
+    <text x="100" y="102" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Background: 0x000000</text>
+    <text x="100" y="119" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Line Width: 0</text>
+    <text x="100" y="136" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Line Style: Solid</text>
+    <text x="100" y="153" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Cap Style: Butt</text>
+    <text x="100" y="170" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Join Style: Miter</text>
+    <text x="100" y="187" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Fill Style: Solid</text>
+    <text x="100" y="204" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">Font: default</text>
+    <text x="100" y="221" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.9)">...</text>
+  </g>
+
+  <!-- Common bits -->
+  <g transform="translate(300, 60)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Common Attribute Bits</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="url(#propGrad1)"/>
+      <text x="15" y="22" font-family="Consolas, monospace" font-size="10" fill="white">GCForeground = 1 &lt;&lt; 2  (0x04)</text>
+      <rect x="250" y="8" width="90" height="20" rx="3" fill="rgba(255,255,255,0.3)"/>
+      <text x="295" y="22" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">Draw color</text>
+    </g>
+
+    <g transform="translate(0, 60)" filter="url(#shadow)">
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="url(#propGrad2)"/>
+      <text x="15" y="22" font-family="Consolas, monospace" font-size="10" fill="white">GCBackground = 1 &lt;&lt; 3  (0x08)</text>
+      <rect x="250" y="8" width="90" height="20" rx="3" fill="rgba(255,255,255,0.3)"/>
+      <text x="295" y="22" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">Fill color</text>
+    </g>
+
+    <g transform="translate(0, 105)" filter="url(#shadow)">
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="url(#propGrad3)"/>
+      <text x="15" y="22" font-family="Consolas, monospace" font-size="10" fill="white">GCLineWidth = 1 &lt;&lt; 4   (0x10)</text>
+      <rect x="250" y="8" width="90" height="20" rx="3" fill="rgba(255,255,255,0.3)"/>
+      <text x="295" y="22" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">0 = fastest</text>
+    </g>
+
+    <g transform="translate(0, 150)" filter="url(#shadow)">
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="#F39C12"/>
+      <text x="15" y="22" font-family="Consolas, monospace" font-size="10" fill="white">GCGraphicsExposures = 1 &lt;&lt; 16</text>
+      <rect x="250" y="8" width="90" height="20" rx="3" fill="rgba(255,255,255,0.3)"/>
+      <text x="295" y="22" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">Disable!</text>
+    </g>
+  </g>
+
+  <!-- Note -->
+  <g transform="translate(50, 325)">
+    <rect x="0" y="0" width="600" height="25" rx="4" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="300" y="17" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1E8449">Use CreateGC once, then ChangeGC to modify colors. FreeGC when done.</text>
+  </g>
+</svg>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280">
+  <defs>
+    <linearGradient id="srcGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dstGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="blitArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E74C3C"/>
+    </marker>
+    <pattern id="checker" patternUnits="userSpaceOnUse" width="10" height="10">
+      <rect width="5" height="5" fill="#CCC"/>
+      <rect x="5" y="5" width="5" height="5" fill="#CCC"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="280" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Sprite Blitting (Block Transfer)</text>
+
+  <!-- Source image -->
+  <g transform="translate(50, 60)" filter="url(#shadow)">
+    <text x="50" y="-10" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3498DB">Source (Sprite)</text>
+    <rect x="0" y="0" width="100" height="100" rx="4" fill="url(#checker)"/>
+    <rect x="0" y="0" width="100" height="100" rx="4" fill="url(#srcGrad)" fill-opacity="0.3"/>
+    <!-- Sprite content -->
+    <circle cx="50" cy="35" r="20" fill="#F1C40F"/>
+    <circle cx="40" cy="30" r="5" fill="#2C3E50"/>
+    <circle cx="60" cy="30" r="5" fill="#2C3E50"/>
+    <path d="M 35 45 Q 50 60 65 45" stroke="#2C3E50" stroke-width="3" fill="none"/>
+    <rect x="25" y="60" width="50" height="35" rx="5" fill="#E74C3C"/>
+    <rect x="20" y="75" width="15" height="20" rx="3" fill="#F1C40F"/>
+    <rect x="65" y="75" width="15" height="20" rx="3" fill="#F1C40F"/>
+  </g>
+
+  <!-- Arrow -->
+  <g>
+    <line x1="170" y1="110" x2="280" y2="110" stroke="#E74C3C" stroke-width="3" marker-end="url(#blitArrow)"/>
+    <text x="225" y="95" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#E74C3C">Blit</text>
+    <text x="225" y="130" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">copy pixels</text>
+  </g>
+
+  <!-- Destination (framebuffer) -->
+  <g transform="translate(300, 50)" filter="url(#shadow)">
+    <text x="125" y="-10" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#27AE60">Destination (Framebuffer)</text>
+    <rect x="0" y="0" width="250" height="150" rx="4" fill="url(#dstGrad)"/>
+
+    <!-- Background elements -->
+    <rect x="20" y="100" width="210" height="40" fill="#8B4513"/>
+    <circle cx="60" cy="40" r="25" fill="#87CEEB"/>
+    <circle cx="180" cy="50" r="30" fill="#87CEEB"/>
+
+    <!-- Blitted sprite at position -->
+    <g transform="translate(100, 30)">
+      <rect x="0" y="0" width="60" height="60" fill="rgba(0,0,0,0.1)" stroke="#F1C40F" stroke-width="2" stroke-dasharray="4,2"/>
+      <circle cx="30" cy="20" r="12" fill="#F1C40F"/>
+      <circle cx="24" cy="17" r="3" fill="#2C3E50"/>
+      <circle cx="36" cy="17" r="3" fill="#2C3E50"/>
+      <path d="M 21 26 Q 30 35 39 26" stroke="#2C3E50" stroke-width="2" fill="none"/>
+      <rect x="15" y="35" width="30" height="20" rx="3" fill="#E74C3C"/>
+      <rect x="12" y="45" width="9" height="12" rx="2" fill="#F1C40F"/>
+      <rect x="39" y="45" width="9" height="12" rx="2" fill="#F1C40F"/>
+    </g>
+
+    <!-- Position marker -->
+    <text x="130" y="105" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">(x, y)</text>
+  </g>
+
+  <!-- Alpha blending note -->
+  <g transform="translate(50, 220)">
+    <rect x="0" y="0" width="600" height="50" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="300" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Alpha Blending: final = src × alpha + dst × (1 - alpha)</text>
+    <text x="300" y="38" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">Transparent pixels (alpha=0) preserve destination | Opaque pixels (alpha=255) replace</text>
+  </g>
+</svg>

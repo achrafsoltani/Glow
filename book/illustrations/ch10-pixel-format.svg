@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="280" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">ZPixmap Pixel Format (24-bit depth, 32 bpp)</text>
+
+  <!-- Pixel bytes -->
+  <g transform="translate(100, 60)">
+    <text x="250" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">One Pixel = 4 bytes (BGRX)</text>
+
+    <g transform="translate(0, 20)" filter="url(#shadow)">
+      <!-- Byte 0: Blue -->
+      <rect x="0" y="0" width="120" height="80" rx="6" fill="#3498DB"/>
+      <text x="60" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Blue</text>
+      <text x="60" y="55" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.8)">Byte 0</text>
+      <text x="60" y="72" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">pixels[i]</text>
+
+      <!-- Byte 1: Green -->
+      <rect x="130" y="0" width="120" height="80" rx="6" fill="#27AE60"/>
+      <text x="190" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Green</text>
+      <text x="190" y="55" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.8)">Byte 1</text>
+      <text x="190" y="72" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">pixels[i+1]</text>
+
+      <!-- Byte 2: Red -->
+      <rect x="260" y="0" width="120" height="80" rx="6" fill="#E74C3C"/>
+      <text x="320" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Red</text>
+      <text x="320" y="55" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.8)">Byte 2</text>
+      <text x="320" y="72" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">pixels[i+2]</text>
+
+      <!-- Byte 3: Padding -->
+      <rect x="390" y="0" width="120" height="80" rx="6" fill="#95A5A6"/>
+      <text x="450" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Unused</text>
+      <text x="450" y="55" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.8)">Byte 3</text>
+      <text x="450" y="72" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">padding</text>
+    </g>
+  </g>
+
+  <!-- Formula -->
+  <g transform="translate(50, 175)">
+    <rect x="0" y="0" width="600" height="50" rx="6" fill="#2C3E50" filter="url(#shadow)"/>
+    <text x="300" y="22" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="#ECF0F1">offset := (y * width + x) * 4</text>
+    <text x="300" y="40" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="#ECF0F1">pixels[offset], pixels[offset+1], pixels[offset+2] = b, g, r</text>
+  </g>
+
+  <!-- Example colors -->
+  <g transform="translate(50, 240)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Examples:</text>
+
+    <g transform="translate(80, 0)">
+      <rect x="0" y="0" width="25" height="25" rx="3" fill="#FF0000"/>
+      <text x="35" y="17" font-family="Consolas, monospace" font-size="10" fill="#666">Red: 0x0000FF (BGR)</text>
+    </g>
+
+    <g transform="translate(220, 0)">
+      <rect x="0" y="0" width="25" height="25" rx="3" fill="#00FF00"/>
+      <text x="35" y="17" font-family="Consolas, monospace" font-size="10" fill="#666">Green: 0x00FF00</text>
+    </g>
+
+    <g transform="translate(360, 0)">
+      <rect x="0" y="0" width="25" height="25" rx="3" fill="#0000FF"/>
+      <text x="35" y="17" font-family="Consolas, monospace" font-size="10" fill="#666">Blue: 0xFF0000</text>
+    </g>
+
+    <g transform="translate(500, 0)">
+      <rect x="0" y="0" width="25" height="25" rx="3" fill="#FFFFFF" stroke="#CCC"/>
+      <text x="35" y="17" font-family="Consolas, monospace" font-size="10" fill="#666">White: 0xFFFFFF</text>
+    </g>
+  </g>
+</svg>

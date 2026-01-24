@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350">
+  <defs>
+    <linearGradient id="startGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="endGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498DB" />
+      <stop offset="50%" style="stop-color:#9B59B6" />
+      <stop offset="100%" style="stop-color:#27AE60" />
+    </linearGradient>
+    <filter id="shadow21" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <filter id="glow21">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">The Learning Journey</text>
+
+  <!-- Journey path -->
+  <path d="M 80 170 C 200 100, 300 240, 400 170 C 500 100, 550 240, 620 170"
+        stroke="url(#pathGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- Milestone dots on path -->
+  <circle cx="80" cy="170" r="12" fill="#3498DB" filter="url(#glow21)"/>
+  <circle cx="200" cy="130" r="8" fill="#5DADE2"/>
+  <circle cx="300" cy="200" r="8" fill="#8E44AD"/>
+  <circle cx="400" cy="170" r="8" fill="#9B59B6"/>
+  <circle cx="500" cy="130" r="8" fill="#58D68D"/>
+  <circle cx="620" cy="170" r="12" fill="#27AE60" filter="url(#glow21)"/>
+
+  <!-- Start label -->
+  <g transform="translate(40, 200)" filter="url(#shadow21)">
+    <rect x="0" y="0" width="80" height="50" rx="4" fill="url(#startGrad)"/>
+    <text x="40" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Start</text>
+    <text x="40" y="38" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#D6EAF8">Unix Socket</text>
+  </g>
+
+  <!-- End label -->
+  <g transform="translate(580, 200)" filter="url(#shadow21)">
+    <rect x="0" y="0" width="80" height="50" rx="4" fill="url(#endGrad)"/>
+    <text x="40" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Finish</text>
+    <text x="40" y="38" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#D5F5E3">Full Library</text>
+  </g>
+
+  <!-- Skills acquired boxes -->
+  <g transform="translate(50, 270)" filter="url(#shadow21)">
+    <rect x="0" y="0" width="130" height="65" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="65" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C3E50">Low-Level</text>
+    <text x="65" y="33" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Binary protocols</text>
+    <text x="65" y="45" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Memory management</text>
+    <text x="65" y="57" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">System calls</text>
+  </g>
+
+  <g transform="translate(200, 270)" filter="url(#shadow21)">
+    <rect x="0" y="0" width="130" height="65" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="65" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C3E50">Graphics</text>
+    <text x="65" y="33" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Rasterization</text>
+    <text x="65" y="45" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Pixel formats</text>
+    <text x="65" y="57" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Sprite blitting</text>
+  </g>
+
+  <g transform="translate(350, 270)" filter="url(#shadow21)">
+    <rect x="0" y="0" width="130" height="65" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="65" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C3E50">Systems</text>
+    <text x="65" y="33" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Unix sockets</text>
+    <text x="65" y="45" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Shared memory</text>
+    <text x="65" y="57" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Concurrency</text>
+  </g>
+
+  <g transform="translate(500, 270)" filter="url(#shadow21)">
+    <rect x="0" y="0" width="130" height="65" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="65" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C3E50">Design</text>
+    <text x="65" y="33" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">API design</text>
+    <text x="65" y="45" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Abstraction layers</text>
+    <text x="65" y="57" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#666">Platform porting</text>
+  </g>
+
+  <!-- Milestone labels -->
+  <text x="200" y="105" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#5DADE2">X11 Protocol</text>
+  <text x="300" y="225" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#8E44AD">Events</text>
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#9B59B6">Rendering</text>
+  <text x="500" y="105" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#58D68D">Applications</text>
+</svg>

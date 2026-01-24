@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 380" width="750" height="380">
+  <defs>
+    <linearGradient id="clientGrad7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ADD8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0095BD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrowRight" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+    <marker id="arrowLeft" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#3498DB"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="380" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="375" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">WM_DELETE_WINDOW Protocol</text>
+
+  <!-- Entities -->
+  <!-- Your App -->
+  <g transform="translate(50, 60)" filter="url(#shadow)">
+    <rect x="0" y="0" width="150" height="70" rx="8" fill="url(#clientGrad7)"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Your App</text>
+    <text x="75" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.8)">(X Client)</text>
+  </g>
+
+  <!-- Window Manager -->
+  <g transform="translate(300, 60)" filter="url(#shadow)">
+    <rect x="0" y="0" width="150" height="70" rx="8" fill="url(#wmGrad)"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Window Manager</text>
+    <text x="75" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.8)">(GNOME, KDE, i3)</text>
+  </g>
+
+  <!-- User -->
+  <g transform="translate(550, 60)" filter="url(#shadow)">
+    <rect x="0" y="0" width="150" height="70" rx="8" fill="url(#userGrad)"/>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">User</text>
+    <text x="75" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.8)">(Clicks close button)</text>
+  </g>
+
+  <!-- Timeline lines -->
+  <line x1="125" y1="130" x2="125" y2="360" stroke="#00ADD8" stroke-width="2"/>
+  <line x1="375" y1="130" x2="375" y2="360" stroke="#E74C3C" stroke-width="2"/>
+  <line x1="625" y1="130" x2="625" y2="360" stroke="#F39C12" stroke-width="2"/>
+
+  <!-- Step 1: Register protocol -->
+  <g transform="translate(0, 150)">
+    <circle cx="125" cy="0" r="15" fill="#27AE60"/>
+    <text x="125" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">1</text>
+
+    <line x1="140" y1="0" x2="360" y2="0" stroke="#27AE60" stroke-width="2" marker-end="url(#arrowRight)"/>
+
+    <rect x="160" y="10" width="180" height="40" rx="4" fill="#E8F8F5" stroke="#27AE60"/>
+    <text x="250" y="28" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#1E8449">ChangeProperty:</text>
+    <text x="250" y="42" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#1E8449">WM_PROTOCOLS = [WM_DELETE_WINDOW]</text>
+  </g>
+
+  <!-- Step 2: User clicks close -->
+  <g transform="translate(0, 220)">
+    <circle cx="625" cy="0" r="15" fill="#F39C12"/>
+    <text x="625" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">2</text>
+
+    <line x1="610" y1="0" x2="390" y2="0" stroke="#F39C12" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowLeft)"/>
+
+    <text x="500" y="-10" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#F39C12">Clicks [X] button</text>
+  </g>
+
+  <!-- Step 3: WM sends ClientMessage -->
+  <g transform="translate(0, 280)">
+    <circle cx="375" cy="0" r="15" fill="#E74C3C"/>
+    <text x="375" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">3</text>
+
+    <line x1="360" y1="0" x2="140" y2="0" stroke="#3498DB" stroke-width="2" marker-end="url(#arrowLeft)"/>
+
+    <rect x="160" y="10" width="180" height="40" rx="4" fill="#EBF5FB" stroke="#3498DB"/>
+    <text x="250" y="28" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#2471A3">ClientMessage event:</text>
+    <text x="250" y="42" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#2471A3">data[0] = WM_DELETE_WINDOW</text>
+  </g>
+
+  <!-- Step 4: App handles -->
+  <g transform="translate(0, 340)">
+    <circle cx="125" cy="0" r="15" fill="#00ADD8"/>
+    <text x="125" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">4</text>
+
+    <rect x="160" y="-15" width="350" height="30" rx="4" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="335" y="5" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#1E8449">App receives event → Save work → DestroyWindow → Exit</text>
+  </g>
+
+  <!-- Without protocol note -->
+  <g transform="translate(530, 280)">
+    <rect x="0" y="-10" width="170" height="55" rx="4" fill="#FDEDEC" stroke="#E74C3C"/>
+    <text x="85" y="8" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#C0392B">Without WM_PROTOCOLS:</text>
+    <text x="85" y="22" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#E74C3C">WM kills your app</text>
+    <text x="85" y="35" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#E74C3C">immediately! (no save)</text>
+  </g>
+</svg>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="300" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Bitmap Font Glyph Layout</text>
+
+  <!-- Font sheet -->
+  <g transform="translate(50, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="280" height="160" rx="6" fill="#2C3E50"/>
+    <text x="140" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#ECF0F1">Font Texture Sheet</text>
+
+    <!-- Grid of glyphs -->
+    <g transform="translate(10, 30)">
+      <!-- Row 1: A-F -->
+      <g>
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">A</text>
+      </g>
+      <g transform="translate(42, 0)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">B</text>
+      </g>
+      <g transform="translate(84, 0)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">C</text>
+      </g>
+      <g transform="translate(126, 0)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">D</text>
+      </g>
+      <g transform="translate(168, 0)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">E</text>
+      </g>
+      <g transform="translate(210, 0)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">F</text>
+      </g>
+
+      <!-- Row 2: G-L -->
+      <g transform="translate(0, 42)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">G</text>
+      </g>
+      <g transform="translate(42, 42)">
+        <rect x="0" y="0" width="40" height="40" fill="#E74C3C" stroke="#C0392B"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="white">H</text>
+      </g>
+      <g transform="translate(84, 42)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">I</text>
+      </g>
+      <g transform="translate(126, 42)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">J</text>
+      </g>
+      <g transform="translate(168, 42)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">K</text>
+      </g>
+      <g transform="translate(210, 42)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">L</text>
+      </g>
+
+      <!-- Row 3: M-R -->
+      <g transform="translate(0, 84)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">M</text>
+      </g>
+      <g transform="translate(42, 84)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">N</text>
+      </g>
+      <g transform="translate(84, 84)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">O</text>
+      </g>
+      <g transform="translate(126, 84)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">P</text>
+      </g>
+      <g transform="translate(168, 84)">
+        <rect x="0" y="0" width="40" height="40" fill="#34495E" stroke="#1A252F"/>
+        <text x="20" y="28" font-family="Consolas, monospace" font-size="20" text-anchor="middle" fill="#ECF0F1">...</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Calculation box -->
+  <g transform="translate(370, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="280" height="160" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="140" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">Glyph Position Calculation</text>
+
+    <g transform="translate(15, 45)">
+      <text x="0" y="0" font-family="Consolas, monospace" font-size="11" fill="#2C3E50">char := 'H'</text>
+      <text x="0" y="20" font-family="Consolas, monospace" font-size="11" fill="#2C3E50">index := char - 'A'  // 7</text>
+      <text x="0" y="45" font-family="Consolas, monospace" font-size="11" fill="#2C3E50">col := index % cols  // 1</text>
+      <text x="0" y="65" font-family="Consolas, monospace" font-size="11" fill="#2C3E50">row := index / cols  // 1</text>
+      <text x="0" y="90" font-family="Consolas, monospace" font-size="11" fill="#E74C3C">srcX := col * glyphW // 42</text>
+      <text x="0" y="110" font-family="Consolas, monospace" font-size="11" fill="#E74C3C">srcY := row * glyphH // 42</text>
+    </g>
+  </g>
+
+  <!-- Output example -->
+  <g transform="translate(50, 230)">
+    <rect x="0" y="0" width="600" height="55" rx="6" fill="#2C3E50" filter="url(#shadow)"/>
+    <text x="300" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#ECF0F1">Rendered Text</text>
+    <text x="300" y="45" font-family="Consolas, monospace" font-size="22" text-anchor="middle" fill="#27AE60">HELLO WORLD!</text>
+  </g>
+</svg>

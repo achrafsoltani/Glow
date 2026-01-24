@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="700" height="170" fill="#FAFAFA"/>
+
+  <text x="350" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">PutImage Request Structure</text>
+
+  <!-- Row 1 -->
+  <g transform="translate(25, 38)" filter="url(#shadow)">
+    <rect x="0" y="0" width="65" height="40" fill="#3498DB" stroke="#2980B9"/>
+    <text x="32" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Opcode</text>
+    <text x="32" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#D6EAF8">(72)</text>
+
+    <rect x="65" y="0" width="65" height="40" fill="#E67E22" stroke="#D35400"/>
+    <text x="97" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Format</text>
+    <text x="97" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#FDEBD0">1 byte</text>
+
+    <rect x="130" y="0" width="75" height="40" fill="#9B59B6" stroke="#8E44AD"/>
+    <text x="167" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Length</text>
+    <text x="167" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#E8DAEF">2 bytes</text>
+
+    <rect x="205" y="0" width="90" height="40" fill="#27AE60" stroke="#1E8449"/>
+    <text x="250" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Drawable</text>
+    <text x="250" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#D5F5E3">4 bytes</text>
+
+    <rect x="295" y="0" width="85" height="40" fill="#1ABC9C" stroke="#16A085"/>
+    <text x="337" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">GC</text>
+    <text x="337" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#D1F2EB">4 bytes</text>
+
+    <rect x="380" y="0" width="70" height="40" fill="#E74C3C" stroke="#C0392B"/>
+    <text x="415" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Width</text>
+    <text x="415" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#FADBD8">2 bytes</text>
+
+    <rect x="450" y="0" width="70" height="40" fill="#E74C3C" stroke="#C0392B"/>
+    <text x="485" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Height</text>
+    <text x="485" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#FADBD8">2 bytes</text>
+
+    <rect x="520" y="0" width="70" height="40" fill="#F39C12" stroke="#E67E22"/>
+    <text x="555" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Dst X</text>
+    <text x="555" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#FCF3CF">2 bytes</text>
+
+    <rect x="590" y="0" width="70" height="40" fill="#F39C12" stroke="#E67E22"/>
+    <text x="625" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Dst Y</text>
+    <text x="625" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#FCF3CF">2 bytes</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(25, 85)" filter="url(#shadow)">
+    <rect x="0" y="0" width="80" height="40" fill="#95A5A6" stroke="#7F8C8D"/>
+    <text x="40" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Left Pad</text>
+    <text x="40" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#ECF0F1">1 byte</text>
+
+    <rect x="80" y="0" width="70" height="40" fill="#2C3E50" stroke="#1A252F"/>
+    <text x="115" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Depth</text>
+    <text x="115" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#BDC3C7">1 byte</text>
+
+    <rect x="150" y="0" width="70" height="40" fill="#7F8C8D" stroke="#95A5A6"/>
+    <text x="185" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Unused</text>
+    <text x="185" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#ECF0F1">2 bytes</text>
+
+    <rect x="220" y="0" width="415" height="40" fill="#8E44AD" stroke="#9B59B6"/>
+    <text x="427" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="white">Pixel Data (BGRX format, row by row)</text>
+    <text x="427" y="32" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="#E8DAEF">Variable (width × height × 4 bytes)</text>
+  </g>
+
+  <!-- Note -->
+  <g transform="translate(25, 135)">
+    <rect x="0" y="0" width="650" height="25" rx="4" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="325" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#2C3E50">Format: ZPixmap (2) for BGRX data | Max request size: 262KB, split into strips if larger</text>
+  </g>
+</svg>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 320" width="450" height="320">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="450" height="320" fill="#FAFAFA"/>
+
+  <text x="225" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Glow Project Structure</text>
+
+  <!-- Main container -->
+  <g transform="translate(30, 45)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="260" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="390" height="28" rx="6" fill="#2C3E50"/>
+    <rect x="0" y="20" width="390" height="8" fill="#2C3E50"/>
+    <text x="15" y="19" font-family="Consolas, monospace" font-size="12" font-weight="bold" fill="white">glow/</text>
+
+    <!-- Public API files -->
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#27AE60">Public API</text>
+
+      <rect x="0" y="8" width="165" height="20" rx="3" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="8" y="22" font-family="Consolas, monospace" font-size="9" fill="#1E8449">glow.go</text>
+      <text x="90" y="22" font-family="Arial, sans-serif" font-size="8" fill="#666">// Package docs</text>
+
+      <rect x="0" y="32" width="165" height="20" rx="3" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="8" y="46" font-family="Consolas, monospace" font-size="9" fill="#1E8449">window.go</text>
+      <text x="90" y="46" font-family="Arial, sans-serif" font-size="8" fill="#666">// Window type</text>
+
+      <rect x="0" y="56" width="165" height="20" rx="3" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="8" y="70" font-family="Consolas, monospace" font-size="9" fill="#1E8449">canvas.go</text>
+      <text x="90" y="70" font-family="Arial, sans-serif" font-size="8" fill="#666">// Canvas type</text>
+
+      <rect x="0" y="80" width="165" height="20" rx="3" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="8" y="94" font-family="Consolas, monospace" font-size="9" fill="#1E8449">color.go</text>
+      <text x="90" y="94" font-family="Arial, sans-serif" font-size="8" fill="#666">// Colors</text>
+
+      <rect x="0" y="104" width="165" height="20" rx="3" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="8" y="118" font-family="Consolas, monospace" font-size="9" fill="#1E8449">events.go</text>
+      <text x="90" y="118" font-family="Arial, sans-serif" font-size="8" fill="#666">// Event types</text>
+
+      <rect x="0" y="128" width="165" height="20" rx="3" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="8" y="142" font-family="Consolas, monospace" font-size="9" fill="#1E8449">keys.go</text>
+      <text x="90" y="142" font-family="Arial, sans-serif" font-size="8" fill="#666">// Key constants</text>
+    </g>
+
+    <!-- Internal package -->
+    <g transform="translate(195, 40)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#9B59B6">Internal (internal/x11/)</text>
+
+      <rect x="0" y="8" width="175" height="20" rx="3" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="8" y="22" font-family="Consolas, monospace" font-size="9" fill="#8E44AD">conn.go</text>
+      <text x="80" y="22" font-family="Arial, sans-serif" font-size="8" fill="#666">// Connection</text>
+
+      <rect x="0" y="32" width="175" height="20" rx="3" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="8" y="46" font-family="Consolas, monospace" font-size="9" fill="#8E44AD">auth.go</text>
+      <text x="80" y="46" font-family="Arial, sans-serif" font-size="8" fill="#666">// Xauthority</text>
+
+      <rect x="0" y="56" width="175" height="20" rx="3" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="8" y="70" font-family="Consolas, monospace" font-size="9" fill="#8E44AD">window.go</text>
+      <text x="80" y="70" font-family="Arial, sans-serif" font-size="8" fill="#666">// X11 windows</text>
+
+      <rect x="0" y="80" width="175" height="20" rx="3" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="8" y="94" font-family="Consolas, monospace" font-size="9" fill="#8E44AD">events.go</text>
+      <text x="80" y="94" font-family="Arial, sans-serif" font-size="8" fill="#666">// Event parsing</text>
+
+      <rect x="0" y="104" width="175" height="20" rx="3" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="8" y="118" font-family="Consolas, monospace" font-size="9" fill="#8E44AD">draw.go</text>
+      <text x="80" y="118" font-family="Arial, sans-serif" font-size="8" fill="#666">// PutImage</text>
+
+      <rect x="0" y="128" width="175" height="20" rx="3" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="8" y="142" font-family="Consolas, monospace" font-size="9" fill="#8E44AD">framebuffer.go</text>
+      <text x="110" y="142" font-family="Arial, sans-serif" font-size="8" fill="#666">// Pixels</text>
+    </g>
+
+    <!-- Legend -->
+    <g transform="translate(15, 200)">
+      <rect x="0" y="0" width="360" height="45" rx="4" fill="#F8F9F9" stroke="#BDC3C7"/>
+      <text x="180" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C3E50">Separation of Concerns</text>
+      <rect x="15" y="26" width="12" height="12" fill="#D5F5E3" stroke="#27AE60"/>
+      <text x="32" y="36" font-family="Arial, sans-serif" font-size="9" fill="#333">Public API (users import)</text>
+      <rect x="190" y="26" width="12" height="12" fill="#E8DAEF" stroke="#9B59B6"/>
+      <text x="207" y="36" font-family="Arial, sans-serif" font-size="9" fill="#333">Internal (hidden details)</text>
+    </g>
+  </g>
+</svg>

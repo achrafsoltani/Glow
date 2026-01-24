@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90D9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5CB85C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#449D44;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="x11Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0AD4E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC971F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="socketGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D9534F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C9302C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hwGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="700" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="300" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Glow Architecture</text>
+
+  <!-- Your Application -->
+  <g filter="url(#shadow)">
+    <rect x="75" y="60" width="450" height="70" rx="8" fill="url(#appGrad)"/>
+  </g>
+  <text x="300" y="90" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Your Application</text>
+  <text x="300" y="112" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">Game loop, drawing commands, event handling</text>
+
+  <!-- Arrow 1 -->
+  <line x1="300" y1="130" x2="300" y2="155" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Public API -->
+  <g filter="url(#shadow)">
+    <rect x="75" y="160" width="450" height="70" rx="8" fill="url(#apiGrad)"/>
+  </g>
+  <text x="300" y="190" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Public API</text>
+  <text x="300" y="212" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">Window, Canvas, Color, Event types</text>
+
+  <!-- Arrow 2 -->
+  <line x1="300" y1="230" x2="300" y2="255" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Internal X11 Layer -->
+  <g filter="url(#shadow)">
+    <rect x="75" y="260" width="450" height="90" rx="8" fill="url(#x11Grad)"/>
+  </g>
+  <text x="300" y="295" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Internal X11 Layer</text>
+  <text x="300" y="317" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">Connection, Protocol, Window, Events</text>
+  <text x="300" y="335" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">Graphics Context, Framebuffer</text>
+
+  <!-- Arrow 3 -->
+  <line x1="300" y1="350" x2="300" y2="375" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Unix Domain Socket -->
+  <g filter="url(#shadow)">
+    <rect x="75" y="380" width="450" height="60" rx="8" fill="url(#socketGrad)"/>
+  </g>
+  <text x="300" y="407" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Unix Domain Socket</text>
+  <text x="300" y="427" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">/tmp/.X11-unix/X0</text>
+
+  <!-- Arrow 4 -->
+  <line x1="300" y1="440" x2="300" y2="465" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- X11 Server -->
+  <g filter="url(#shadow)">
+    <rect x="75" y="470" width="450" height="70" rx="8" fill="url(#serverGrad)"/>
+  </g>
+  <text x="300" y="500" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">X11 Server</text>
+  <text x="300" y="522" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">Xorg, XWayland, or another implementation</text>
+
+  <!-- Arrow 5 -->
+  <line x1="300" y1="540" x2="300" y2="565" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Display Hardware -->
+  <g filter="url(#shadow)">
+    <rect x="75" y="570" width="450" height="70" rx="8" fill="url(#hwGrad)"/>
+  </g>
+  <text x="300" y="600" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Display Hardware</text>
+  <text x="300" y="622" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">GPU, Monitor</text>
+
+  <!-- Side labels -->
+  <text x="545" y="95" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="start">Go code</text>
+  <text x="545" y="195" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="start">glow.go</text>
+  <text x="545" y="310" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="start">internal/x11/</text>
+  <text x="545" y="410" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="start">net.Dial()</text>
+  <text x="545" y="505" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="start">System</text>
+  <text x="545" y="605" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="start">Hardware</text>
+
+  <!-- Legend line -->
+  <line x1="535" y1="75" x2="535" y2="625" stroke="#DDD" stroke-width="1" stroke-dasharray="4,4"/>
+</svg>

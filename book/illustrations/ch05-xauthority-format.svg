@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350">
+  <defs>
+    <linearGradient id="fieldGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Xauthority Entry Format</text>
+
+  <!-- File path -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="600" height="30" rx="4" fill="#2C3E50" filter="url(#shadow)"/>
+    <text x="300" y="20" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="#ECF0F1">~/.Xauthority (binary file)</text>
+  </g>
+
+  <!-- Entry structure -->
+  <g transform="translate(50, 100)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Entry Structure:</text>
+
+    <!-- Fields row -->
+    <g transform="translate(0, 20)" filter="url(#shadow)">
+      <!-- Family -->
+      <rect x="0" y="0" width="80" height="60" rx="4" fill="url(#fieldGrad1)"/>
+      <text x="40" y="25" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">Family</text>
+      <text x="40" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">2 bytes</text>
+
+      <!-- Address -->
+      <rect x="85" y="0" width="120" height="60" rx="4" fill="url(#fieldGrad2)"/>
+      <text x="145" y="25" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">Address</text>
+      <text x="145" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">len + data</text>
+
+      <!-- Display -->
+      <rect x="210" y="0" width="100" height="60" rx="4" fill="url(#fieldGrad3)"/>
+      <text x="260" y="25" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">Display</text>
+      <text x="260" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">len + data</text>
+
+      <!-- Auth Name -->
+      <rect x="315" y="0" width="130" height="60" rx="4" fill="url(#fieldGrad4)"/>
+      <text x="380" y="25" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">Auth Name</text>
+      <text x="380" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">len + data</text>
+
+      <!-- Auth Data -->
+      <rect x="450" y="0" width="150" height="60" rx="4" fill="url(#fieldGrad5)"/>
+      <text x="525" y="25" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">Auth Data</text>
+      <text x="525" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">len + data</text>
+    </g>
+  </g>
+
+  <!-- Example entry -->
+  <g transform="translate(50, 210)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Example Entry:</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="600" height="75" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+
+      <!-- Family -->
+      <rect x="10" y="10" width="80" height="25" rx="3" fill="#3498DB"/>
+      <text x="50" y="27" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">256</text>
+      <text x="50" y="50" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">FamilyLocal</text>
+
+      <!-- Address -->
+      <rect x="100" y="10" width="100" height="25" rx="3" fill="#27AE60"/>
+      <text x="150" y="27" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">"" (empty)</text>
+      <text x="150" y="50" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">Local conn</text>
+
+      <!-- Display -->
+      <rect x="210" y="10" width="60" height="25" rx="3" fill="#E74C3C"/>
+      <text x="240" y="27" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">"0"</text>
+      <text x="240" y="50" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">Display 0</text>
+
+      <!-- Auth Name -->
+      <rect x="280" y="10" width="170" height="25" rx="3" fill="#9B59B6"/>
+      <text x="365" y="27" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">"MIT-MAGIC-COOKIE-1"</text>
+      <text x="365" y="50" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">Auth protocol</text>
+
+      <!-- Auth Data -->
+      <rect x="460" y="10" width="130" height="25" rx="3" fill="#F39C12"/>
+      <text x="525" y="27" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">a1b2c3d4...</text>
+      <text x="525" y="50" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">16-byte cookie</text>
+    </g>
+  </g>
+
+  <!-- Family codes -->
+  <g transform="translate(50, 310)">
+    <rect x="0" y="0" width="600" height="30" rx="4" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="300" y="20" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="#1E8449">Family codes: 0=Internet, 256=Local, 65535=Wild (matches any)</text>
+  </g>
+</svg>

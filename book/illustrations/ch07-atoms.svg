@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320">
+  <defs>
+    <linearGradient id="stringGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="atomGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serverGrad7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow7" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498DB"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="320" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">X11 Atoms: Interned Strings</text>
+
+  <!-- Explanation -->
+  <text x="350" y="55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">Atoms convert strings to 32-bit integers for efficient comparison and transmission</text>
+
+  <!-- String column -->
+  <g transform="translate(50, 80)">
+    <text x="90" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#E74C3C">String Name</text>
+
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="180" height="35" rx="4" fill="url(#stringGrad)"/>
+      <text x="90" y="23" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"WM_NAME"</text>
+    </g>
+
+    <g transform="translate(0, 60)" filter="url(#shadow)">
+      <rect x="0" y="0" width="180" height="35" rx="4" fill="url(#stringGrad)"/>
+      <text x="90" y="23" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"WM_DELETE_WINDOW"</text>
+    </g>
+
+    <g transform="translate(0, 105)" filter="url(#shadow)">
+      <rect x="0" y="0" width="180" height="35" rx="4" fill="url(#stringGrad)"/>
+      <text x="90" y="23" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"_NET_WM_NAME"</text>
+    </g>
+
+    <g transform="translate(0, 150)" filter="url(#shadow)">
+      <rect x="0" y="0" width="180" height="35" rx="4" fill="url(#stringGrad)"/>
+      <text x="90" y="23" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"UTF8_STRING"</text>
+    </g>
+  </g>
+
+  <!-- Arrows -->
+  <g transform="translate(240, 80)">
+    <line x1="0" y1="32" x2="70" y2="32" stroke="#3498DB" stroke-width="2" marker-end="url(#arrow7)"/>
+    <line x1="0" y1="77" x2="70" y2="77" stroke="#3498DB" stroke-width="2" marker-end="url(#arrow7)"/>
+    <line x1="0" y1="122" x2="70" y2="122" stroke="#3498DB" stroke-width="2" marker-end="url(#arrow7)"/>
+    <line x1="0" y1="167" x2="70" y2="167" stroke="#3498DB" stroke-width="2" marker-end="url(#arrow7)"/>
+    <text x="35" y="10" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#3498DB">InternAtom</text>
+  </g>
+
+  <!-- Server Atom Table -->
+  <g transform="translate(320, 70)" filter="url(#shadow)">
+    <rect x="0" y="0" width="330" height="200" rx="8" fill="url(#serverGrad7)"/>
+    <text x="165" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">X Server Atom Table</text>
+
+    <!-- Table rows -->
+    <g transform="translate(20, 40)">
+      <rect x="0" y="0" width="290" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <text x="90" y="20" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"WM_NAME"</text>
+      <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#D5F5E3">→</text>
+      <rect x="240" y="5" width="45" height="20" rx="3" fill="url(#atomGrad)"/>
+      <text x="262" y="20" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">39</text>
+    </g>
+
+    <g transform="translate(20, 80)">
+      <rect x="0" y="0" width="290" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+      <text x="90" y="20" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"WM_DELETE_WINDOW"</text>
+      <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#D5F5E3">→</text>
+      <rect x="240" y="5" width="45" height="20" rx="3" fill="url(#atomGrad)"/>
+      <text x="262" y="20" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">424</text>
+    </g>
+
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="290" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <text x="90" y="20" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"_NET_WM_NAME"</text>
+      <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#D5F5E3">→</text>
+      <rect x="240" y="5" width="45" height="20" rx="3" fill="url(#atomGrad)"/>
+      <text x="262" y="20" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">322</text>
+    </g>
+
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="290" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+      <text x="90" y="20" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">"UTF8_STRING"</text>
+      <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#D5F5E3">→</text>
+      <rect x="240" y="5" width="45" height="20" rx="3" fill="url(#atomGrad)"/>
+      <text x="262" y="20" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">315</text>
+    </g>
+  </g>
+
+  <!-- Benefits box -->
+  <g transform="translate(50, 280)">
+    <rect x="0" y="0" width="600" height="35" rx="4" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="300" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1E8449">Benefits: 4 bytes vs variable strings | Fast integer comparison | Reusable across requests</text>
+    <text x="300" y="28" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#27AE60">Cache atoms after first lookup - values never change!</text>
+  </g>
+</svg>
