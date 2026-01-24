@@ -4,6 +4,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"io"
 	"net"
 	"os"
 	"strings"
@@ -19,6 +20,7 @@ type Connection struct {
 	RootWindow     uint32
 	RootVisual     uint32
 	RootDepth      uint8
+	BitsPerPixel   uint8 // Bits per pixel for RootDepth
 	ScreenWidth    uint16
 	ScreenHeight   uint16
 
@@ -70,6 +72,16 @@ func Connect() (*Connection, error) {
 // Close closes the connection
 func (c *Connection) Close() error {
 	return c.conn.Close()
+}
+
+// Write writes raw bytes to the X11 connection
+func (c *Connection) Write(data []byte) (int, error) {
+	return c.conn.Write(data)
+}
+
+// Reader returns the underlying connection for reading
+func (c *Connection) Reader() io.Reader {
+	return c.conn
 }
 
 func (c *Connection) handshake() error {
@@ -168,6 +180,24 @@ func (c *Connection) parseSetupSuccess(header []byte) error {
 	c.RootDepth = screen[38]
 	c.RootVisual = binary.LittleEndian.Uint32(screen[32:36])
 
+	// Parse pixmap formats to find bits-per-pixel for our depth
+	// Formats start at offset 32 + vendorPadded
+	formatOffset := 32 + int(vendorPadded)
+	for i := 0; i < int(numFormats); i++ {
+		fmtData := data[formatOffset+i*8:]
+		depth := fmtData[0]
+		bpp := fmtData[1]
+		if depth == c.RootDepth {
+			c.BitsPerPixel = bpp
+			break
+		}
+	}
+
+	// Default to 32 bpp if not found
+	if c.BitsPerPixel == 0 {
+		c.BitsPerPixel = 32
+	}
+
 	// Initialize ID generator
 	c.nextID = c.ResourceIDBase
 
@@ -179,4 +209,31 @@ func (c *Connection) GenerateID() uint32 {
 	id := c.nextID
 	c.nextID++
 	return (id & c.ResourceIDMask) | c.ResourceIDBase
+}
+
+// Sync sends a GetInputFocus request and waits for the reply
+// This ensures all previous requests have been processed
+func (c *Connection) Sync() error {
+	req := make([]byte, 4)
+	req[0] = 43 // GetInputFocus opcode
+	req[1] = 0
+	binary.LittleEndian.PutUint16(req[2:], 1) // Length
+
+	if _, err := c.conn.Write(req); err != nil {
+		return err
+	}
+
+	// Read reply (32 bytes)
+	reply := make([]byte, 32)
+	if _, err := c.conn.Read(reply); err != nil {
+		return err
+	}
+
+	// Check if it's an error (first byte = 0)
+	if reply[0] == 0 {
+		errorCode := reply[1]
+		return fmt.Errorf("X11 error: code %d", errorCode)
+	}
+
+	return nil
 }

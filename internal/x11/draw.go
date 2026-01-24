@@ -56,11 +56,53 @@ func (c *Connection) FreeGC(gcID uint32) error {
 
 // PutImage sends pixel data to a drawable (window or pixmap)
 // This is the core function for software rendering
+// For large images, it automatically splits into multiple requests
 func (c *Connection) PutImage(drawable, gc uint32, width, height uint16,
 	dstX, dstY int16, depth uint8, data []byte) error {
 
+	bytesPerPixel := 4 // Assuming 32-bit depth
+	rowBytes := int(width) * bytesPerPixel
+
+	// Maximum data size per request (leaving room for header)
+	// X11 request length is 16-bit, max = 65535 words = 262140 bytes
+	// Header is 24 bytes, so max data is ~262116 bytes
+	// Use a safe limit of 256KB - 24 bytes
+	maxDataBytes := 262140 - 24
+
+	// Calculate how many rows we can send per request
+	rowsPerRequest := maxDataBytes / rowBytes
+	if rowsPerRequest < 1 {
+		rowsPerRequest = 1
+	}
+	if rowsPerRequest > int(height) {
+		rowsPerRequest = int(height)
+	}
+
+	// Send image in strips
+	for y := 0; y < int(height); y += rowsPerRequest {
+		stripHeight := rowsPerRequest
+		if y+stripHeight > int(height) {
+			stripHeight = int(height) - y
+		}
+
+		stripDataLen := stripHeight * rowBytes
+		stripData := data[y*rowBytes : (y+stripHeight)*rowBytes]
+
+		err := c.putImageStrip(drawable, gc, width, uint16(stripHeight),
+			dstX, dstY+int16(y), depth, stripData, stripDataLen)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+// putImageStrip sends a single PutImage request for a strip of the image
+func (c *Connection) putImageStrip(drawable, gc uint32, width, height uint16,
+	dstX, dstY int16, depth uint8, data []byte, dataLen int) error {
+
 	// Data must be padded to 4-byte boundary
-	dataLen := len(data)
 	padding := (4 - (dataLen % 4)) % 4
 
 	// Request length in 4-byte units
