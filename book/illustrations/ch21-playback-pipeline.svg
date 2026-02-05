@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 350" width="750" height="350">
+  <defs>
+    <linearGradient id="playGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="readGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="streamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0AD4E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC971F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="writeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mixGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="375" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Fire-and-Forget Playback Pipeline</text>
+
+  <!-- Stage 1: Play() -->
+  <g transform="translate(20, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="85" rx="8" fill="url(#playGrad)"/>
+    <text x="60" y="28" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Play()</text>
+    <rect x="10" y="38" width="100" height="38" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="60" y="55" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="rgba(255,255,255,0.9)">go func() {</text>
+    <text x="60" y="68" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="rgba(255,255,255,0.9)">  // goroutine</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="140" y1="97" x2="157" y2="97" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Read -->
+  <g transform="translate(165, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="85" rx="8" fill="url(#readGrad)"/>
+    <text x="60" y="28" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Read PCM</text>
+    <rect x="10" y="38" width="100" height="38" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="60" y="55" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="rgba(255,255,255,0.9)">io.ReadAll(r)</text>
+    <text x="60" y="68" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="rgba(255,255,255,0.9)">→ []byte</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="285" y1="97" x2="302" y2="97" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Create Stream -->
+  <g transform="translate(310, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="85" rx="8" fill="url(#streamGrad)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Create</text>
+    <text x="60" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Stream</text>
+    <rect x="10" y="48" width="100" height="28" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="60" y="67" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="rgba(255,255,255,0.9)">cmd=3 → channel</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="430" y1="97" x2="447" y2="97" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Write Chunks -->
+  <g transform="translate(455, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="85" rx="8" fill="url(#writeGrad)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Write</text>
+    <text x="60" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">64KB Chunks</text>
+    <rect x="10" y="48" width="100" height="28" rx="4" fill="rgba(0,0,0,0.2)"/>
+    <text x="60" y="67" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="rgba(255,255,255,0.9)">desc + PCM data</text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <line x1="575" y1="97" x2="592" y2="97" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 5: Server Drains -->
+  <g transform="translate(600, 55)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="85" rx="8" fill="url(#mixGrad)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Server</text>
+    <text x="60" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Drains</text>
+    <!-- Speaker icon -->
+    <rect x="40" y="50" width="15" height="25" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <polygon points="55,45 75,55 75,80 55,90" fill="rgba(255,255,255,0.3)"/>
+    <!-- Sound waves -->
+    <path d="M 80 60 Q 88 67 80 75" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <path d="M 86 55 Q 97 67 86 80" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  </g>
+
+  <!-- Parallel goroutines -->
+  <g transform="translate(20, 175)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Multiple Sounds Play Simultaneously:</text>
+
+    <!-- Goroutine 1 -->
+    <g transform="translate(0, 18)">
+      <rect x="0" y="0" width="90" height="25" rx="4" fill="#3498DB"/>
+      <text x="45" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">goroutine 1</text>
+      <line x1="90" y1="12" x2="530" y2="12" stroke="#3498DB" stroke-width="2"/>
+    </g>
+
+    <!-- Goroutine 2 -->
+    <g transform="translate(0, 50)">
+      <rect x="0" y="0" width="90" height="25" rx="4" fill="#27AE60"/>
+      <text x="45" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">goroutine 2</text>
+      <line x1="90" y1="12" x2="530" y2="12" stroke="#27AE60" stroke-width="2"/>
+    </g>
+
+    <!-- Goroutine 3 -->
+    <g transform="translate(0, 82)">
+      <rect x="0" y="0" width="90" height="25" rx="4" fill="#E74C3C"/>
+      <text x="45" y="17" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="white">goroutine 3</text>
+      <line x1="90" y1="12" x2="530" y2="12" stroke="#E74C3C" stroke-width="2"/>
+    </g>
+
+    <!-- Converge to mixer -->
+    <line x1="530" y1="30" x2="580" y2="62" stroke="#666" stroke-width="1.5"/>
+    <line x1="530" y1="62" x2="580" y2="62" stroke="#666" stroke-width="1.5"/>
+    <line x1="530" y1="94" x2="580" y2="62" stroke="#666" stroke-width="1.5"/>
+
+    <!-- Mixer box -->
+    <rect x="580" y="47" width="100" height="30" rx="4" fill="url(#mixGrad)" filter="url(#shadow)"/>
+    <text x="630" y="67" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">PA Mixer</text>
+  </g>
+
+  <!-- Annotation -->
+  <g transform="translate(20, 310)">
+    <rect x="0" y="0" width="710" height="30" rx="4" fill="#D5F5E3" stroke="#27AE60"/>
+    <text x="355" y="20" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1E8449">Each goroutine gets its own stream — PulseAudio mixes them at the server</text>
+  </g>
+</svg>

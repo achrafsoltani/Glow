@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400" width="750" height="400">
+  <defs>
+    <linearGradient id="tagGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="payloadGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="payloadGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="payloadGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="400" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="375" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Tagged Value Encoding</text>
+
+  <!-- Row 1: TAG_U32 -->
+  <g transform="translate(40, 55)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">TAG_U32</text>
+
+    <g transform="translate(90, 0)" filter="url(#shadow)">
+      <!-- Tag byte -->
+      <rect x="0" y="0" width="40" height="35" rx="4" fill="url(#tagGrad)"/>
+      <text x="20" y="22" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">L</text>
+
+      <!-- Payload: 4 bytes -->
+      <rect x="42" y="0" width="140" height="35" rx="4" fill="url(#payloadGrad1)"/>
+      <text x="112" y="22" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">4 bytes big-endian</text>
+    </g>
+
+    <!-- Annotation -->
+    <text x="510" y="22" font-family="Consolas, monospace" font-size="10" fill="#666">e.g., protocol version = 35</text>
+  </g>
+
+  <!-- Row 2: TAG_STRING -->
+  <g transform="translate(40, 120)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">TAG_STRING</text>
+
+    <g transform="translate(90, 0)" filter="url(#shadow)">
+      <!-- Tag byte -->
+      <rect x="0" y="0" width="40" height="35" rx="4" fill="url(#tagGrad)"/>
+      <text x="20" y="22" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">t</text>
+
+      <!-- String bytes -->
+      <rect x="42" y="0" width="40" height="35" rx="4" fill="url(#payloadGrad2)"/>
+      <text x="62" y="22" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">g</text>
+
+      <rect x="84" y="0" width="40" height="35" rx="4" fill="url(#payloadGrad2)" fill-opacity="0.85"/>
+      <text x="104" y="22" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">l</text>
+
+      <rect x="126" y="0" width="40" height="35" rx="4" fill="url(#payloadGrad2)" fill-opacity="0.7"/>
+      <text x="146" y="22" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">o</text>
+
+      <rect x="168" y="0" width="40" height="35" rx="4" fill="url(#payloadGrad2)" fill-opacity="0.55"/>
+      <text x="188" y="22" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="white">w</text>
+
+      <!-- Null terminator -->
+      <rect x="210" y="0" width="50" height="35" rx="4" fill="url(#payloadGrad2)" fill-opacity="0.4"/>
+      <text x="235" y="22" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">0x00</text>
+    </g>
+
+    <!-- Annotation -->
+    <text x="510" y="22" font-family="Consolas, monospace" font-size="10" fill="#666">null-terminated string</text>
+  </g>
+
+  <!-- Row 3: TAG_ARBITRARY -->
+  <g transform="translate(40, 185)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">TAG_ARBITRARY</text>
+
+    <g transform="translate(90, 0)" filter="url(#shadow)">
+      <!-- Tag byte -->
+      <rect x="0" y="0" width="40" height="35" rx="4" fill="url(#tagGrad)"/>
+      <text x="20" y="22" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">x</text>
+
+      <!-- Length: 4 bytes -->
+      <rect x="42" y="0" width="100" height="35" rx="4" fill="url(#payloadGrad3)"/>
+      <text x="92" y="22" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">4-byte length</text>
+
+      <!-- Raw data -->
+      <rect x="144" y="0" width="190" height="35" rx="4" fill="url(#payloadGrad3)" fill-opacity="0.6"/>
+      <text x="239" y="22" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="white">raw data (length bytes)...</text>
+    </g>
+
+    <!-- Annotation -->
+    <text x="510" y="22" font-family="Consolas, monospace" font-size="10" fill="#666">e.g., 256-byte cookie</text>
+  </g>
+
+  <!-- Row 4: TAG_BOOL_TRUE -->
+  <g transform="translate(40, 250)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">TAG_BOOL_TRUE</text>
+
+    <g transform="translate(90, 0)" filter="url(#shadow)">
+      <!-- Tag byte (single byte, no payload) -->
+      <rect x="0" y="0" width="40" height="35" rx="4" fill="url(#tagGrad)"/>
+      <text x="20" y="22" font-family="Consolas, monospace" font-size="12" text-anchor="middle" fill="white">1</text>
+    </g>
+
+    <!-- Annotation -->
+    <text x="510" y="22" font-family="Consolas, monospace" font-size="10" fill="#666">no payload - single byte</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(40, 320)">
+    <rect x="0" y="0" width="670" height="60" rx="6" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <text x="20" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Self-describing format:</text>
+    <text x="20" y="45" font-family="Consolas, monospace" font-size="10" fill="#666">Each value prefixed with type tag byte — parser reads tag, then knows how many bytes to consume</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="300" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Procedural Sound Synthesis</text>
+
+  <!-- Waveform 1: Pure Sine (440Hz) -->
+  <g transform="translate(40, 45)">
+    <text x="0" y="12" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3498DB">440Hz Sine Wave (reference)</text>
+    <rect x="0" y="18" width="520" height="50" rx="4" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <!-- Sine wave -->
+    <path d="M 10 43 Q 35 18 60 43 Q 85 68 110 43 Q 135 18 160 43 Q 185 68 210 43 Q 235 18 260 43 Q 285 68 310 43 Q 335 18 360 43 Q 385 68 410 43 Q 435 18 460 43 Q 485 68 510 43" fill="none" stroke="#3498DB" stroke-width="2"/>
+    <!-- Centre line -->
+    <line x1="10" y1="43" x2="510" y2="43" stroke="#BDC3C7" stroke-width="1" stroke-dasharray="3,3"/>
+    <!-- Freq label -->
+    <text x="540" y="47" font-family="Consolas, monospace" font-size="9" fill="#3498DB">freq=440</text>
+  </g>
+
+  <!-- Waveform 2: Descending Sweep -->
+  <g transform="translate(40, 120)">
+    <text x="0" y="12" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#27AE60">Descending Sweep (800Hz → 400Hz) — "shoot" sound</text>
+    <rect x="0" y="18" width="520" height="50" rx="4" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <!-- Sweep: high freq → low freq -->
+    <path d="M 10 43 Q 20 18 30 43 Q 40 68 50 43 Q 60 18 70 43 Q 80 68 90 43 Q 102 18 114 43 Q 126 68 138 43 Q 152 18 166 43 Q 180 68 194 43 Q 210 18 226 43 Q 244 68 262 43 Q 282 18 302 43 Q 324 68 346 43 Q 370 18 394 43 Q 420 68 446 43 Q 475 18 510 43" fill="none" stroke="#27AE60" stroke-width="2"/>
+    <!-- Centre line -->
+    <line x1="10" y1="43" x2="510" y2="43" stroke="#BDC3C7" stroke-width="1" stroke-dasharray="3,3"/>
+    <!-- Labels -->
+    <text x="540" y="40" font-family="Consolas, monospace" font-size="9" fill="#27AE60">800Hz</text>
+    <text x="540" y="52" font-family="Consolas, monospace" font-size="9" fill="#27AE60">→ 400Hz</text>
+  </g>
+
+  <!-- Waveform 3: Sweep with Decay Envelope -->
+  <g transform="translate(40, 198)">
+    <text x="0" y="12" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#E74C3C">Result: Sweep + Exponential Decay Envelope</text>
+    <rect x="0" y="18" width="520" height="55" rx="4" fill="#ECF0F1" stroke="#BDC3C7"/>
+    <!-- Envelope (green dashed) -->
+    <path d="M 10 25 Q 60 25 130 30 Q 250 36 380 43 Q 450 45 510 46" fill="none" stroke="#27AE60" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <path d="M 10 65 Q 60 65 130 58 Q 250 52 380 47 Q 450 45 510 46" fill="none" stroke="#27AE60" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <!-- Decaying sweep wave (red) -->
+    <path d="M 10 45 Q 18 25 26 45 Q 34 65 42 45 Q 51 26 60 45 Q 69 64 78 45 Q 88 27 98 45 Q 110 63 122 45 Q 136 28 150 45 Q 165 61 180 45 Q 198 30 216 45 Q 234 59 252 45 Q 273 32 294 45 Q 317 56 340 45 Q 366 36 392 45 Q 420 52 448 45 Q 478 40 510 45" fill="none" stroke="#E74C3C" stroke-width="2"/>
+    <!-- Centre line -->
+    <line x1="10" y1="45" x2="510" y2="45" stroke="#BDC3C7" stroke-width="1" stroke-dasharray="3,3"/>
+    <!-- Labels -->
+    <text x="540" y="38" font-family="Consolas, monospace" font-size="8" fill="#27AE60">envelope</text>
+    <text x="540" y="52" font-family="Consolas, monospace" font-size="8" fill="#E74C3C">output</text>
+  </g>
+
+  <!-- Formula -->
+  <g transform="translate(40, 272)">
+    <rect x="0" y="0" width="620" height="22" rx="4" fill="#2C3E50"/>
+    <text x="310" y="16" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="#ECF0F1">sample = sin(2*pi * freq(t) * t) * envelope(t)    where envelope = (1 - progress)^2</text>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280">
+  <defs>
+    <linearGradient id="fieldGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0AD4E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC971F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#95A5A6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7F8C8D;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="280" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">PulseAudio 20-Byte Frame Descriptor</text>
+
+  <!-- Fields row -->
+  <g transform="translate(50, 50)" filter="url(#shadow)">
+    <!-- Length -->
+    <rect x="0" y="0" width="120" height="60" rx="4" fill="url(#fieldGrad1)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Length</text>
+    <text x="60" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">4 bytes</text>
+
+    <!-- Channel -->
+    <rect x="122" y="0" width="120" height="60" rx="4" fill="url(#fieldGrad2)"/>
+    <text x="182" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Channel</text>
+    <text x="182" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">4 bytes</text>
+
+    <!-- Offset Hi -->
+    <rect x="244" y="0" width="120" height="60" rx="4" fill="url(#fieldGrad3)" fill-opacity="0.8"/>
+    <text x="304" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Offset Hi</text>
+    <text x="304" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">4 bytes</text>
+
+    <!-- Offset Lo -->
+    <rect x="366" y="0" width="120" height="60" rx="4" fill="url(#fieldGrad3)" fill-opacity="0.6"/>
+    <text x="426" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Offset Lo</text>
+    <text x="426" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">4 bytes</text>
+
+    <!-- Flags -->
+    <rect x="488" y="0" width="110" height="60" rx="4" fill="url(#fieldGrad4)" fill-opacity="0.5"/>
+    <text x="543" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Flags</text>
+    <text x="543" y="45" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.8)">4 bytes</text>
+  </g>
+
+  <!-- Examples -->
+  <g transform="translate(50, 130)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Examples:</text>
+
+    <!-- Control frame -->
+    <g transform="translate(0, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="290" height="45" rx="6" fill="#E8F8F5" stroke="#27AE60"/>
+      <text x="10" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1E8449">Control Frame</text>
+      <text x="10" y="35" font-family="Consolas, monospace" font-size="9" fill="#1E8449">Channel = 0xFFFFFFFF (commands/replies)</text>
+    </g>
+
+    <!-- Data frame -->
+    <g transform="translate(310, 15)" filter="url(#shadow)">
+      <rect x="0" y="0" width="290" height="45" rx="6" fill="#EBF5FB" stroke="#3498DB"/>
+      <text x="10" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2471A3">Data Frame</text>
+      <text x="10" y="35" font-family="Consolas, monospace" font-size="9" fill="#2471A3">Channel = stream ID (raw PCM audio)</text>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(50, 220)">
+    <rect x="0" y="0" width="600" height="35" rx="5" fill="#FEF9E7" stroke="#F39C12"/>
+    <text x="300" y="22" font-family="Consolas, monospace" font-size="11" text-anchor="middle" fill="#7D6608">All fields big-endian (unlike X11's little-endian)</text>
+  </g>
+</svg>
