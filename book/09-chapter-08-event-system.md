@@ -26,6 +26,8 @@ eventMask := uint32(
 )
 ```
 
+![X11 Event Mask Bits](illustrations/ch09-event-masks.png)
+
 Each mask bit enables a category of events:
 
 - **KeyPressMask/KeyReleaseMask**: Keyboard input

@@ -198,6 +198,8 @@ func (fb *Framebuffer) DrawRectOutline(x, y, width, height int, r, g, b uint8) {
 
 ## 11.7 Drawing Lines - Bresenham's Algorithm
 
+![Bresenham's Line Algorithm](illustrations/ch12-bresenham.png)
+
 Drawing a line between two points seems simple, but doing it efficiently for all slopes requires care. Bresenham's algorithm is the classic solution.
 
 The key insight: we only need to decide whether to step in Y when we step in X (or vice versa).
@@ -249,6 +251,8 @@ func abs(x int) int {
 This works for all line orientations and produces visually pleasing results.
 
 ## 11.8 Drawing Circles - Midpoint Algorithm
+
+![Midpoint Circle: 8-Way Symmetry](illustrations/ch12-midpoint-circle.png)
 
 The midpoint circle algorithm draws circles using only integer arithmetic:
 

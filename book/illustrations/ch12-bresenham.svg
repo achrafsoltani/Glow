@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="600" height="350">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="350" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="300" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Bresenham's Line Algorithm</text>
+
+  <!-- Grid -->
+  <g transform="translate(50, 45)">
+    <!-- Grid lines (9 cols x 5 rows) -->
+    <g stroke="#DDD" stroke-width="1">
+      <line x1="0" y1="0" x2="320" y2="0"/>
+      <line x1="0" y1="40" x2="320" y2="40"/>
+      <line x1="0" y1="80" x2="320" y2="80"/>
+      <line x1="0" y1="120" x2="320" y2="120"/>
+      <line x1="0" y1="160" x2="320" y2="160"/>
+      <line x1="0" y1="200" x2="320" y2="200"/>
+      <line x1="0" y1="0" x2="0" y2="200"/>
+      <line x1="40" y1="0" x2="40" y2="200"/>
+      <line x1="80" y1="0" x2="80" y2="200"/>
+      <line x1="120" y1="0" x2="120" y2="200"/>
+      <line x1="160" y1="0" x2="160" y2="200"/>
+      <line x1="200" y1="0" x2="200" y2="200"/>
+      <line x1="240" y1="0" x2="240" y2="200"/>
+      <line x1="280" y1="0" x2="280" y2="200"/>
+      <line x1="320" y1="0" x2="320" y2="200"/>
+    </g>
+
+    <!-- Ideal line (thin dashed) from (1,1) to (8,4) -->
+    <line x1="20" y1="20" x2="300" y2="180" stroke="#E74C3C" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+    <!-- Lit pixels (blue filled squares) -->
+    <!-- (1,1) -->
+    <rect x="1" y="1" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="20" y="25" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">1,1</text>
+
+    <!-- (2,1) -->
+    <rect x="41" y="1" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="60" y="25" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">2,1</text>
+
+    <!-- (3,2) -->
+    <rect x="81" y="41" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="100" y="65" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">3,2</text>
+
+    <!-- (4,2) -->
+    <rect x="121" y="41" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="140" y="65" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">4,2</text>
+
+    <!-- (5,3) -->
+    <rect x="161" y="81" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="180" y="105" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">5,3</text>
+
+    <!-- (6,3) -->
+    <rect x="201" y="81" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="220" y="105" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">6,3</text>
+
+    <!-- (7,4) -->
+    <rect x="241" y="121" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="260" y="145" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">7,4</text>
+
+    <!-- (8,4) -->
+    <rect x="281" y="121" width="38" height="38" rx="2" fill="#3498DB" fill-opacity="0.7"/>
+    <text x="300" y="145" font-family="Consolas, monospace" font-size="8" text-anchor="middle" fill="white">8,4</text>
+
+    <!-- Axis labels -->
+    <text x="20" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">1</text>
+    <text x="60" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">2</text>
+    <text x="100" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">3</text>
+    <text x="140" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">4</text>
+    <text x="180" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">5</text>
+    <text x="220" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">6</text>
+    <text x="260" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">7</text>
+    <text x="300" y="215" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">8</text>
+
+    <text x="-12" y="25" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">1</text>
+    <text x="-12" y="65" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">2</text>
+    <text x="-12" y="105" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">3</text>
+    <text x="-12" y="145" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">4</text>
+    <text x="-12" y="185" font-family="Consolas, monospace" font-size="9" text-anchor="middle" fill="#666">5</text>
+
+    <!-- Axis labels -->
+    <text x="160" y="235" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#666">X</text>
+    <text x="-28" y="105" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#666">Y</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(410, 55)">
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="#ECF0F1" stroke="#BDC3C7" filter="url(#shadow)"/>
+    <text x="85" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">Legend</text>
+
+    <!-- Blue pixel -->
+    <rect x="15" y="35" width="15" height="15" rx="2" fill="#3498DB"/>
+    <text x="40" y="47" font-family="Arial, sans-serif" font-size="10" fill="#333">Lit pixel</text>
+
+    <!-- Red dashed line -->
+    <line x1="15" y1="65" x2="30" y2="65" stroke="#E74C3C" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="40" y="69" font-family="Arial, sans-serif" font-size="10" fill="#333">Ideal line</text>
+
+    <!-- Info -->
+    <text x="85" y="95" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">Integer arithmetic only</text>
+    <text x="85" y="110" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666">No floats needed</text>
+  </g>
+
+  <!-- Error tracking -->
+  <g transform="translate(410, 195)">
+    <rect x="0" y="0" width="170" height="100" rx="6" fill="#2C3E50" filter="url(#shadow)"/>
+    <text x="85" y="20" font-family="Consolas, monospace" font-size="10" text-anchor="middle" fill="#ECF0F1">Error tracking:</text>
+    <text x="15" y="40" font-family="Consolas, monospace" font-size="9" fill="#3498DB">dx = 7, dy = -3</text>
+    <text x="15" y="55" font-family="Consolas, monospace" font-size="9" fill="#27AE60">err = dx + dy = 4</text>
+    <text x="15" y="75" font-family="Consolas, monospace" font-size="9" fill="#ECF0F1">Step X always</text>
+    <text x="15" y="90" font-family="Consolas, monospace" font-size="9" fill="#ECF0F1">Step Y when 2*err &lt;= dx</text>
+  </g>
+</svg>
