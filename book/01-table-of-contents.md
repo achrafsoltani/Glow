@@ -158,13 +158,26 @@
 - 20.3 Font Rasterization
 - 20.4 Text Layout
 
-### Chapter 21: Audio
+### Chapter 21: Audio — PulseAudio Native Protocol
 - 21.1 Audio on Linux
-- 21.2 The oto Library
-- 21.3 Loading WAV Files
-- 21.4 Sound Effects and Music
+- 21.2 PulseAudio Protocol Overview
+- 21.3 Implementation
+- 21.4 Public API
+- 21.5 Comparing X11 and PulseAudio
+- 21.6 Procedural Sound Effects
+- 21.7 Summary
 
-### Chapter 22: Gamepad Support
+### Chapter 22: What's Next
+- 22.1 What You've Built
+- 22.2 Skills Acquired
+- 22.3 Possible Extensions
+- 22.4 Performance Path
+- 22.5 Learning Resources
+- 22.6 Similar Projects
+- 22.7 Community and Contribution
+- 22.8 Final Thoughts
+
+### Chapter 23: Gamepad Support (Planned)
 - 22.1 Linux Joystick API
 - 22.2 Reading Input Events
 - 22.3 Controller Mapping

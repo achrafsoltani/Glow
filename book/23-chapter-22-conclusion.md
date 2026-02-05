@@ -1,10 +1,12 @@
-# Chapter 21: What's Next
+# Chapter 22: What's Next
 
 You've built a graphics library from scratch. Let's reflect on what you've learned and explore paths forward.
 
 ![The Learning Journey](illustrations/ch21-journey-summary.png)
 
-## 21.1 What You've Built
+## 22.1 What You've Built
+
+![Complete Glow Architecture](illustrations/ch22-full-architecture.png)
 
 Starting from nothing but Go and a Unix socket, you created:
 
@@ -12,12 +14,13 @@ Starting from nothing but Go and a Unix socket, you created:
 - **Window Management**: Creation, properties, events
 - **Input System**: Keyboard and mouse with non-blocking polling
 - **Software Renderer**: Framebuffer with drawing primitives
+- **Audio System**: PulseAudio native protocol for sound playback
 - **Public API**: Clean, SDL-like interface
 - **Applications**: Pong, Paint, Particles
 
 This isn't just a toy. It's a working graphics library suitable for 2D games and applications.
 
-## 21.2 Skills Acquired
+## 22.2 Skills Acquired
 
 ### Low-Level Programming
 - Binary protocol parsing
@@ -42,18 +45,16 @@ This isn't just a toy. It's a working graphics library suitable for 2D games and
 - Separation of public and internal packages
 - Graceful degradation (SHM fallback)
 
-## 21.3 Possible Extensions
+## 22.3 Possible Extensions
 
 ### Audio
 
-Add sound using ALSA or PulseAudio:
+Already built into Glow via the PulseAudio native protocol (see Chapter 21). Pure Go, zero dependencies:
 
 ```go
-type AudioSystem interface {
-    PlaySound(samples []int16, sampleRate int)
-    PlayMusic(path string)
-    SetVolume(volume float64)
-}
+ctx, _ := glow.NewAudioContext(44100, 1, 2)
+player := ctx.NewPlayer(bytes.NewReader(pcmData))
+player.Play() // fire-and-forget
 ```
 
 ### Gamepad Support
@@ -130,7 +131,7 @@ type Node interface {
 }
 ```
 
-## 21.4 Performance Path
+## 22.4 Performance Path
 
 If you need more performance:
 
@@ -165,7 +166,7 @@ CPU vector instructions for bulk operations:
 // Process 4 or 8 pixels at once
 ```
 
-## 21.5 Learning Resources
+## 22.5 Learning Resources
 
 ### X11 Protocol
 - X Window System Protocol (X.Org Foundation)
@@ -182,7 +183,7 @@ CPU vector instructions for bulk operations:
 - Effective Go (golang.org)
 - Go by Example (gobyexample.com)
 
-## 21.6 Similar Projects
+## 22.6 Similar Projects
 
 Study these for inspiration:
 
@@ -192,7 +193,7 @@ Study these for inspiration:
 - **Ebiten** (Go): Production-ready 2D game engine
 - **Pixel** (Go): 2D game library for Go
 
-## 21.7 Community and Contribution
+## 22.7 Community and Contribution
 
 ### Open Source Your Work
 
@@ -210,7 +211,7 @@ Real users find real bugs. Embrace issues and PRs.
 
 Blog posts, tutorials, and talks spread knowledge and attract contributors.
 
-## 21.8 Final Thoughts
+## 22.8 Final Thoughts
 
 You started this journey asking "How do pixels get to the screen?" Now you know.
 
