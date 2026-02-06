@@ -123,10 +123,11 @@ const (
 func (w *Window) PollEvent() *Event {
 	select {
 	case e := <-w.eventChan:
-		// Update window dimensions if resize event
+		// Update window dimensions and resize canvas if resize event
 		if e.Type == EventWindowResize {
 			w.width = e.Width
 			w.height = e.Height
+			w.canvas.Resize(w.width, w.height)
 		}
 		return &e
 	default:
@@ -137,10 +138,11 @@ func (w *Window) PollEvent() *Event {
 // WaitEvent blocks until an event is available
 func (w *Window) WaitEvent() *Event {
 	e := <-w.eventChan
-	// Update window dimensions if resize event
+	// Update window dimensions and resize canvas if resize event
 	if e.Type == EventWindowResize {
 		w.width = e.Width
 		w.height = e.Height
+		w.canvas.Resize(w.width, w.height)
 	}
 	return &e
 }

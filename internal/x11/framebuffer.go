@@ -18,6 +18,13 @@ func NewFramebuffer(width, height int) *Framebuffer {
 	}
 }
 
+// Resize reallocates the framebuffer to new dimensions.
+func (fb *Framebuffer) Resize(width, height int) {
+	fb.Width = width
+	fb.Height = height
+	fb.Pixels = make([]byte, width*height*4)
+}
+
 // Clear fills the entire framebuffer with a color
 func (fb *Framebuffer) Clear(r, g, b uint8) {
 	for i := 0; i < len(fb.Pixels); i += 4 {

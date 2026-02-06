@@ -149,7 +149,7 @@ func (w *Window) Canvas() *Canvas { return w.canvas }
 // Present copies the canvas to the screen
 func (w *Window) Present() error {
 	return w.conn.PutImage(w.windowID, w.gcID,
-		uint16(w.width), uint16(w.height), 0, 0,
+		uint16(w.canvas.fb.Width), uint16(w.canvas.fb.Height), 0, 0,
 		w.conn.RootDepth, w.canvas.fb.Pixels)
 }
 
@@ -206,3 +206,8 @@ func (c *Canvas) Width() int { return c.fb.Width }
 
 // Height returns the canvas height
 func (c *Canvas) Height() int { return c.fb.Height }
+
+// Resize reallocates the canvas to new dimensions.
+func (c *Canvas) Resize(width, height int) {
+	c.fb.Resize(width, height)
+}
