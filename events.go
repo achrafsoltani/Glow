@@ -100,6 +100,9 @@ const (
 	KeyAltL      Key = 64
 	KeyAltR      Key = 108
 
+	KeyMinus Key = 20
+	KeyEqual Key = 21 // Also + with Shift
+
 	KeyLeft  Key = 113
 	KeyUp    Key = 111
 	KeyRight Key = 114
