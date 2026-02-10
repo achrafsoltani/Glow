@@ -88,3 +88,18 @@ func (c *Connection) DestroyWindow(windowID uint32) error {
 	_, err := c.conn.Write(req)
 	return err
 }
+
+// SendEvent sends an event to a window.
+// The event parameter must be exactly 32 bytes.
+func (c *Connection) SendEvent(destination uint32, eventMask uint32, event []byte) error {
+	req := make([]byte, 44)
+	req[0] = OpSendEvent
+	req[1] = 0 // propagate = false
+	binary.LittleEndian.PutUint16(req[2:], 11) // request length: 11 words (44 bytes)
+	binary.LittleEndian.PutUint32(req[4:], destination)
+	binary.LittleEndian.PutUint32(req[8:], eventMask)
+	copy(req[12:], event[:32])
+
+	_, err := c.conn.Write(req)
+	return err
+}

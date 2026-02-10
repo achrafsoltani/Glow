@@ -11,12 +11,14 @@ type Atom uint32
 
 // Common atoms we'll need
 var (
-	AtomWMProtocols    Atom
-	AtomWMDeleteWindow Atom
-	AtomWMName         Atom
-	AtomString         Atom
-	AtomUTF8String     Atom
-	AtomNetWMName      Atom
+	AtomWMProtocols          Atom
+	AtomWMDeleteWindow       Atom
+	AtomWMName               Atom
+	AtomString               Atom
+	AtomUTF8String           Atom
+	AtomNetWMName            Atom
+	AtomNetWMState           Atom
+	AtomNetWMStateFullscreen Atom
 )
 
 // InternAtom converts a string to an atom
@@ -88,6 +90,16 @@ func (c *Connection) InitAtoms() error {
 	}
 
 	AtomNetWMName, err = c.InternAtom("_NET_WM_NAME", false)
+	if err != nil {
+		return err
+	}
+
+	AtomNetWMState, err = c.InternAtom("_NET_WM_STATE", false)
+	if err != nil {
+		return err
+	}
+
+	AtomNetWMStateFullscreen, err = c.InternAtom("_NET_WM_STATE_FULLSCREEN", false)
 	if err != nil {
 		return err
 	}

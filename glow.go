@@ -3,6 +3,8 @@
 package glow
 
 import (
+	"encoding/binary"
+
 	"github.com/AchrafSoltani/glow/internal/x11"
 )
 
@@ -49,6 +51,9 @@ type Window struct {
 	width    int
 	height   int
 	closed   bool
+
+	// Fullscreen state
+	fullscreen bool
 
 	// Event handling
 	eventChan chan Event
@@ -136,6 +141,36 @@ func (w *Window) Close() {
 	w.conn.DestroyWindow(w.windowID)
 	w.conn.Close()
 }
+
+// SetFullscreen toggles fullscreen mode via _NET_WM_STATE.
+func (w *Window) SetFullscreen(fullscreen bool) error {
+	action := uint32(0) // _NET_WM_STATE_REMOVE
+	if fullscreen {
+		action = 1 // _NET_WM_STATE_ADD
+	}
+
+	// Build a ClientMessage event (32 bytes)
+	var event [32]byte
+	event[0] = 33 // ClientMessage event type
+	event[1] = 32 // format = 32-bit
+	// sequence number at [2:4] is zero (unused for SendEvent)
+	binary.LittleEndian.PutUint32(event[4:], w.windowID)                       // window
+	binary.LittleEndian.PutUint32(event[8:], uint32(x11.AtomNetWMState))       // message_type
+	binary.LittleEndian.PutUint32(event[12:], action)                          // data[0]: action
+	binary.LittleEndian.PutUint32(event[16:], uint32(x11.AtomNetWMStateFullscreen)) // data[1]: property
+	// data[2..4] remain zero
+
+	mask := uint32(x11.SubstructureRedirectMask | x11.SubstructureNotifyMask)
+	if err := w.conn.SendEvent(w.conn.RootWindow, mask, event[:]); err != nil {
+		return err
+	}
+
+	w.fullscreen = fullscreen
+	return nil
+}
+
+// IsFullscreen returns the current fullscreen state.
+func (w *Window) IsFullscreen() bool { return w.fullscreen }
 
 // Width returns the window width
 func (w *Window) Width() int { return w.width }

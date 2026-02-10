@@ -2,21 +2,22 @@ package x11
 
 // X11 Request Opcodes
 const (
-	OpCreateWindow    = 1
+	OpCreateWindow           = 1
 	OpChangeWindowAttributes = 2
-	OpGetWindowAttributes = 3
-	OpDestroyWindow   = 4
-	OpMapWindow       = 8
-	OpUnmapWindow     = 10
-	OpConfigureWindow = 12
-	OpInternAtom      = 16
-	OpChangeProperty  = 18
-	OpDeleteProperty  = 19
-	OpGetProperty     = 20
-	OpCreateGC        = 55
-	OpFreeGC          = 60
-	OpPolyFillRect    = 70
-	OpPutImage        = 72
+	OpGetWindowAttributes    = 3
+	OpDestroyWindow          = 4
+	OpMapWindow              = 8
+	OpUnmapWindow            = 10
+	OpConfigureWindow        = 12
+	OpSendEvent              = 25
+	OpInternAtom             = 16
+	OpChangeProperty         = 18
+	OpDeleteProperty         = 19
+	OpGetProperty            = 20
+	OpCreateGC               = 55
+	OpFreeGC                 = 60
+	OpPolyFillRect           = 70
+	OpPutImage               = 72
 )
 
 // Window classes
@@ -47,16 +48,18 @@ const (
 
 // Event masks - these determine which events we receive
 const (
-	KeyPressMask        = 1 << 0
-	KeyReleaseMask      = 1 << 1
-	ButtonPressMask     = 1 << 2
-	ButtonReleaseMask   = 1 << 3
-	EnterWindowMask     = 1 << 4
-	LeaveWindowMask     = 1 << 5
-	PointerMotionMask   = 1 << 6
-	ExposureMask        = 1 << 15
-	StructureNotifyMask = 1 << 17
-	FocusChangeMask     = 1 << 21
+	KeyPressMask             = 1 << 0
+	KeyReleaseMask           = 1 << 1
+	ButtonPressMask          = 1 << 2
+	ButtonReleaseMask        = 1 << 3
+	EnterWindowMask          = 1 << 4
+	LeaveWindowMask          = 1 << 5
+	PointerMotionMask        = 1 << 6
+	ExposureMask             = 1 << 15
+	StructureNotifyMask      = 1 << 17
+	SubstructureNotifyMask   = 1 << 19
+	SubstructureRedirectMask = 1 << 20
+	FocusChangeMask          = 1 << 21
 )
 
 // Event types - the type field in event packets
